@@ -8,6 +8,8 @@ This is a list of resources for troff, the original Unix system for
 typesetting documents. Below will be a list of resources for troff,
 nroff, preprocessors & more associated tools.
 
+NOTE: Some PDFs may not render previewed in GitHub! You likely will have to download them.
+
 ## List
 
 -   [Troff.org](http://www.troff.org)
