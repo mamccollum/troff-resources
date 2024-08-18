@@ -1,0 +1,4920 @@
+%!PS
+%%Version: 3.3.1
+%%DocumentFonts: (atend)
+%%Pages: (atend)
+%%EndComments
+%
+% Version 3.3.1 prologue for troff files.
+%
+
+/#copies 1 store
+/aspectratio 1 def
+/formsperpage 1 def
+/landscape false def
+/linewidth .3 def
+/magnification 1 def
+/margin 0 def
+/orientation 0 def
+/resolution 720 def
+/rotation 1 def
+/xoffset 0 def
+/yoffset 0 def
+
+/roundpage true def
+/useclippath true def
+/pagebbox [0 0 612 792] def
+
+/R  /Times-Roman def
+/I  /Times-Italic def
+/B  /Times-Bold def
+/BI /Times-BoldItalic def
+/H  /Helvetica def
+/HI /Helvetica-Oblique def
+/HB /Helvetica-Bold def
+/HX /Helvetica-BoldOblique def
+/CW /Courier def
+/CO /Courier def
+/CI /Courier-Oblique def
+/CB /Courier-Bold def
+/CX /Courier-BoldOblique def
+/PA /Palatino-Roman def
+/PI /Palatino-Italic def
+/PB /Palatino-Bold def
+/PX /Palatino-BoldItalic def
+/Hr /Helvetica-Narrow def
+/Hi /Helvetica-Narrow-Oblique def
+/Hb /Helvetica-Narrow-Bold def
+/Hx /Helvetica-Narrow-BoldOblique def
+/KR /Bookman-Light def
+/KI /Bookman-LightItalic def
+/KB /Bookman-Demi def
+/KX /Bookman-DemiItalic def
+/AR /AvantGarde-Book def
+/AI /AvantGarde-BookOblique def
+/AB /AvantGarde-Demi def
+/AX /AvantGarde-DemiOblique def
+/NR /NewCenturySchlbk-Roman def
+/NI /NewCenturySchlbk-Italic def
+/NB /NewCenturySchlbk-Bold def
+/NX /NewCenturySchlbk-BoldItalic def
+/ZD /ZapfDingbats def
+/ZI /ZapfChancery-MediumItalic def
+/S  /S def
+/S1 /S1 def
+/GR /Symbol def
+
+/inch {72 mul} bind def
+/min {2 copy gt {exch} if pop} bind def
+
+/setup {
+	counttomark 2 idiv {def} repeat pop
+
+	landscape {/orientation 90 orientation add def} if
+	/scaling 72 resolution div def
+	linewidth setlinewidth
+	1 setlinecap
+
+	pagedimensions
+	xcenter ycenter translate
+	orientation rotation mul rotate
+	width 2 div neg height 2 div translate
+	xoffset inch yoffset inch neg translate
+	margin 2 div dup neg translate
+	magnification dup aspectratio mul scale
+	scaling scaling scale
+
+	addmetrics
+	0 0 moveto
+} def
+
+/pagedimensions {
+	useclippath userdict /gotpagebbox known not and {
+		/pagebbox [clippath pathbbox newpath] def
+		roundpage currentdict /roundpagebbox known and {roundpagebbox} if
+	} if
+	pagebbox aload pop
+	4 -1 roll exch 4 1 roll 4 copy
+	landscape {4 2 roll} if
+	sub /width exch def
+	sub /height exch def
+	add 2 div /xcenter exch def
+	add 2 div /ycenter exch def
+	userdict /gotpagebbox true put
+} def
+
+/addmetrics {
+	/Symbol /S null Sdefs cf
+	/Times-Roman /S1 StandardEncoding dup length array copy S1defs cf
+} def
+
+/pagesetup {
+	/page exch def
+	currentdict /pagedict known currentdict page known and {
+		page load pagedict exch get cvx exec
+	} if
+} def
+
+/decodingdefs [
+	{counttomark 2 idiv {y moveto show} repeat}
+	{neg /y exch def counttomark 2 idiv {y moveto show} repeat}
+	{neg moveto {2 index stringwidth pop sub exch div 0 32 4 -1 roll widthshow} repeat}
+	{neg moveto {spacewidth sub 0.0 32 4 -1 roll widthshow} repeat}
+	{counttomark 2 idiv {y moveto show} repeat}
+	{neg setfunnytext}
+] def
+
+/setdecoding {/t decodingdefs 3 -1 roll get bind def} bind def
+
+/w {neg moveto show} bind def
+/m {neg dup /y exch def moveto} bind def
+/done {/lastpage where {pop lastpage} if} def
+
+/f {
+	dup /font exch def findfont exch
+	dup /ptsize exch def scaling div dup /size exch def scalefont setfont
+	linewidth ptsize mul scaling 10 mul div setlinewidth
+	/spacewidth ( ) stringwidth pop def
+} bind def
+
+/changefont {
+	/fontheight exch def
+	/fontslant exch def
+	currentfont [
+		1 0
+		fontheight ptsize div fontslant sin mul fontslant cos div
+		fontheight ptsize div
+		0 0
+	] makefont setfont
+} bind def
+
+/sf {f} bind def
+
+/cf {
+	dup length 2 idiv
+	/entries exch def
+	/chtab exch def
+	/newencoding exch def
+	/newfont exch def
+
+	findfont dup length 1 add dict
+	/newdict exch def
+	{1 index /FID ne {newdict 3 1 roll put}{pop pop} ifelse} forall
+
+	newencoding type /arraytype eq {newdict /Encoding newencoding put} if
+
+	newdict /Metrics entries dict put
+	newdict /Metrics get
+	begin
+		chtab aload pop
+		1 1 entries {pop def} for
+		newfont newdict definefont pop
+	end
+} bind def
+
+%
+% A few arrays used to adjust reference points and character widths in some
+% of the printer resident fonts. If square roots are too high try changing
+% the lines describing /radical and /radicalex to,
+%
+%	/radical	[0 -75 550 0]
+%	/radicalex	[-50 -75 500 0]
+%
+% Move braceleftbt a bit - default PostScript character is off a bit.
+%
+
+/Sdefs [
+	/bracketlefttp		[201 500]
+	/bracketleftbt		[201 500]
+	/bracketrighttp		[-81 380]
+	/bracketrightbt		[-83 380]
+	/braceleftbt		[203 490]
+	/bracketrightex		[220 -125 500 0]
+	/radical		[0 0 550 0]
+	/radicalex		[-50 0 500 0]
+	/parenleftex		[-20 -170 0 0]
+	/integral		[100 -50 500 0]
+	/infinity		[10 -75 730 0]
+] def
+
+/S1defs [
+	/underscore		[0 80 500 0]
+	/endash			[7 90 650 0]
+] def
+%
+% Tries to round clipping path dimensions, as stored in array pagebbox, so they
+% match one of the known sizes in the papersizes array. Lower left coordinates
+% are always set to 0.
+%
+
+/roundpagebbox {
+    7 dict begin
+	/papersizes [8.5 inch 11 inch 14 inch 17 inch] def
+
+	/mappapersize {
+		/val exch def
+		/slop .5 inch def
+		/diff slop def
+		/j 0 def
+		0 1 papersizes length 1 sub {
+			/i exch def
+			papersizes i get val sub abs
+			dup diff le {/diff exch def /j i def} {pop} ifelse
+		} for
+		diff slop lt {papersizes j get} {val} ifelse
+	} def
+
+	pagebbox 0 0 put
+	pagebbox 1 0 put
+	pagebbox dup 2 get mappapersize 2 exch put
+	pagebbox dup 3 get mappapersize 3 exch put
+    end
+} bind def
+
+%%EndProlog
+%%BeginSetup
+mark
+/resolution 720 def
+setup
+2 setdecoding
+%%EndSetup
+%%Page: 1 1
+/saveobj save def
+mark
+1 pagesetup
+10 PA f
+(AT&T Bell Laboratories)2 1053 1 2353 1750 t
+(Murray Hill, New Jersey 07974)4 1367 1 2196 1880 t
+(Computing Science Technical Report No. 122)5 1996 1 1882 3190 t
+12 PB f
+( Manual)1 456( User)1 314(CHEM \320 A Program for Typesetting Chemical Diagrams:)7 3168 3 911 3470 t
+10 PI f
+(Jon L. Bentley)2 570 1 2595 3710 t
+(Lynn W. Jelinski)2 682 1 2539 3830 t
+(Brian W. Kernighan)2 826 1 2467 3950 t
+10 PA f
+(October 6, 1992)2 679 1 720 6240 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 1 1
+%%Page: 0 2
+/saveobj save def
+mark
+2 pagesetup
+12 PB f
+( Manual)1 456( User)1 314(CHEM \320 A Program for Typesetting Chemical Diagrams:)7 3168 3 911 1230 t
+10 PI f
+(Jon L. Bentley)2 570 1 2595 1490 t
+(Lynn W. Jelinski)2 682 1 2539 1620 t
+(Brian W. Kernighan)2 826 1 2467 1750 t
+10 PA f
+(AT&T Bell Laboratories)2 1053 1 2353 1945 t
+(Murray Hill, New Jersey 07974)4 1367 1 2196 2075 t
+10 PI f
+(ABSTRACT)2621 2605 w
+(chem)1330 2875 w
+10 PA f
+(is a)1 150 1 1567 2875 t
+10 PI f
+(troff)1746 2875 w
+10 PA f
+(preprocessor like)1 766 1 1955 2875 t
+10 PI f
+(eqn)2751 2875 w
+10 PA f
+(or)2922 2875 w
+10 PI f
+(tbl)3047 2875 w
+10 PA f
+(, for producing chemical structure)4 1526 1 3154 2875 t
+(diagrams like this one:)3 1001 1 1080 3005 t
+cleartomark
+saveobj restore
+%%BeginGlobal
+%
+% Version 3.3.1 drawing procedures for dpost. Automatically pulled in when
+% needed.
+%
+
+/inpath false def
+/savematrix matrix def
+
+/Dl {
+	inpath
+		{pop pop neg lineto}
+		{newpath neg moveto neg lineto stroke}
+	ifelse
+} bind def
+
+/De {
+	/y1 exch 2 div def
+	/x1 exch 2 div def
+	/savematrix savematrix currentmatrix def
+	neg exch x1 add exch translate
+	x1 y1 scale
+	0 0 1 0 360
+	inpath
+		{1 0 moveto arc savematrix setmatrix}
+		{newpath arc savematrix setmatrix stroke}
+	ifelse
+} bind def
+
+/Da {
+	/dy2 exch def
+	/dx2 exch def
+	/dy1 exch def
+	/dx1 exch def
+	dy1 add neg exch dx1 add exch
+	dx1 dx1 mul dy1 dy1 mul add sqrt
+	dy1 dx1 neg atan
+	dy2 neg dx2 atan
+	inpath
+		{arc}
+		{newpath arc stroke}
+	ifelse
+} bind def
+
+/DA {
+	/dy2 exch def
+	/dx2 exch def
+	/dy1 exch def
+	/dx1 exch def
+	dy1 add neg exch dx1 add exch
+	dx1 dx1 mul dy1 dy1 mul add sqrt
+	dy1 dx1 neg atan
+	dy2 neg dx2 atan
+	inpath
+		{arcn}
+		{newpath arcn stroke}
+	ifelse
+} bind def
+
+/Ds {
+	/y2 exch def
+	/x2 exch def
+	/y1 exch def
+	/x1 exch def
+	/y0 exch def
+	/x0 exch def
+	x0 5 x1 mul add 6 div
+	y0 5 y1 mul add -6 div
+	x2 5 x1 mul add 6 div
+	y2 5 y1 mul add -6 div
+	x1 x2 add 2 div
+	y1 y2 add -2 div
+	inpath
+		{curveto}
+		{newpath x0 x1 add 2 div y0 y1 add -2 div moveto curveto stroke}
+	ifelse
+} bind def
+%%EndGlobal
+/saveobj save def
+mark
+10 PA f
+2444 4633 2552 4446 Dl
+2228 4633 2444 4633 Dl
+2120 4446 2228 4633 Dl
+2228 4259 2120 4446 Dl
+2444 4259 2228 4259 Dl
+2552 4446 2444 4259 Dl
+2228 4446 216 216 De
+2552 4446 2444 4633 Dl
+2768 4446 2552 4446 Dl
+2768 4820 2768 4446 Dl
+2741 4773 2741 4493 Dl
+2610 4820 2768 4820 Dl
+(N)2511 4851 w
+2444 4634 2523 4771 Dl
+(H)2511 4966 w
+2768 4446 2876 4259 Dl
+2552 4446 2768 4446 Dl
+2444 4259 2552 4446 Dl
+2552 4072 2444 4259 Dl
+2768 4072 2552 4072 Dl
+2876 4259 2768 4072 Dl
+2768 4072 2912 4054 Dl
+2768 4071 2912 4056 Dl
+2768 4071 2912 4059 Dl
+2768 4072 2912 4062 Dl
+2768 4071 2912 4064 Dl
+2768 4072 2912 4067 Dl
+2768 4071 2913 4069 Dl
+2768 4072 2913 4072 Dl
+2768 4072 2913 4074 Dl
+2768 4072 2912 4077 Dl
+2768 4073 2912 4080 Dl
+2768 4072 2912 4082 Dl
+2768 4073 2912 4085 Dl
+2768 4072 2912 4087 Dl
+2768 4072 2912 4090 Dl
+2912 4072 2768 4072 Dl
+(H)2914 4103 w
+(N)2835 3916 w
+2768 4072 2847 3935 Dl
+2552 4072 2768 4072 Dl
+2444 3885 2552 4072 Dl
+2476 3885 2568 4044 Dl
+2552 3698 2444 3885 Dl
+2768 3698 2552 3698 Dl
+2847 3835 2768 3698 Dl
+3063 3885 2919 3885 Dl
+(CH)3077 3916 w
+7 PA f
+(3)3231 3951 w
+10 PA f
+2542 3677 2528 3702 Dl
+2527 3667 2513 3692 Dl
+2512 3659 2498 3684 Dl
+2496 3649 2482 3674 Dl
+2481 3641 2467 3666 Dl
+2465 3631 2451 3656 Dl
+2449 3623 2435 3648 Dl
+(H)2355 3616 w
+2552 3554 2552 3698 Dl
+(C)2517 3527 w
+2537 3295 2537 3439 Dl
+2566 3295 2566 3439 Dl
+(O)2513 3268 w
+2739 3496 2595 3496 Dl
+(N)2741 3527 w
+2913 3354 2812 3455 Dl
+(C)2919 3344 w
+7 PA f
+(2)2990 3379 w
+10 PA f
+(H)3025 3344 w
+7 PA f
+(5)3108 3379 w
+10 PA f
+2913 3638 2812 3537 Dl
+(C)2919 3711 w
+7 PA f
+(2)2990 3746 w
+10 PA f
+(H)3025 3711 w
+7 PA f
+(5)3108 3746 w
+10 PI f
+(chem)1080 5207 w
+10 PA f
+( structure diagrams in)3 984(is intended to make it possible for chemists to include)9 2382 2 1314 5207 t
+( tables or mathemat-)3 932(their manuscripts with the same ease that they can include)9 2668 2 1080 5337 t
+(ics.)1080 5467 w
+10 PI f
+(chem)1294 5467 w
+10 PA f
+(has provisions for rings, heterocycles, adjustable bond lengths and)8 3129 1 1551 5467 t
+( can be used for papers and for viewgraphs.)8 1938( It)1 117(angles, and stereochemistry.)2 1256 3 1080 5597 t
+(October 6, 1992)2 679 1 720 6117 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 0 2
+%%Page: 1 3
+/saveobj save def
+mark
+3 pagesetup
+12 PB f
+( Manual)1 456( User)1 314(CHEM \320 A Program for Typesetting Chemical Diagrams:)7 3168 3 911 1230 t
+10 PI f
+(Jon L. Bentley)2 570 1 2595 1490 t
+(Lynn W. Jelinski)2 682 1 2539 1620 t
+(Brian W. Kernighan)2 826 1 2467 1750 t
+10 PA f
+(AT&T Bell Laboratories)2 1053 1 2353 1945 t
+(Murray Hill, New Jersey 07974)4 1367 1 2196 2075 t
+10 PB f
+( is)1 102(1. What)1 369 2 720 2465 t
+10 PX f
+(chem)1216 2465 w
+10 PA f
+(?)1443 2465 w
+10 PI f
+(chem)970 2631 w
+10 PA f
+(is a)1 150 1 1207 2631 t
+10 PI f
+(troff)1386 2631 w
+10 PA f
+(preprocessor like)1 766 1 1595 2631 t
+10 PI f
+(eqn)2391 2631 w
+10 PA f
+(or)2562 2631 w
+10 PI f
+(tbl)2687 2631 w
+10 PA f
+(or)2824 2631 w
+10 PI f
+(pic)2949 2631 w
+10 PA f
+(, for producing chemical structure diagrams)5 1972 1 3068 2631 t
+( it attempts to cap-)4 836( is intended as a natural language for chemists;)8 2105( It)1 121(like the ones in this manual.)5 1258 4 720 2761 t
+( colleague over the telephone.)4 1363(ture the way that a chemist might describe a molecule to a)11 2680 2 720 2891 t
+10 PI f
+(chem)4824 2891 w
+10 PA f
+( a sequence of commands in the)6 1464(converts the textual description of a structure diagram into)8 2694 2 720 3021 t
+10 PI f
+(pic)4913 3021 w
+10 PA f
+(graphics language, and these in turn are converted into commands for the)11 3271 1 720 3151 t
+10 PI f
+(troff)4016 3151 w
+10 PA f
+(formatter.)4221 3151 w
+10 PI f
+(chem)970 3317 w
+10 PA f
+( doesn't do)2 511(is still experimental: it is slow, error checking is minimal, and it certainly)12 3317 2 1212 3317 t
+( struc-)1 283( now it is best suited for producing viewgraphs and publication-quality)10 3230(everything. Right)1 807 3 720 3447 t
+(tures of organic and bio-organic molecules.)5 1909 1 720 3577 t
+10 PB f
+( to Input Structure Descriptions)4 1446(2. How)1 347 2 720 3837 t
+10 PA f
+(The commands that tell)3 1041 1 970 4003 t
+10 PI f
+(chem)2037 4003 w
+10 PA f
+(how to draw a chemical structure can be embedded in the text)11 2761 1 2279 4003 t
+( either case, the commands must be surrounded by)8 2316( In)1 150( stand alone.)2 575(of a manuscript, or they can)5 1279 4 720 4133 t
+10 CW f
+(.cstart)720 4263 w
+10 PA f
+(and)1174 4263 w
+10 CW f
+(.cend)1377 4263 w
+10 PA f
+(, with the ``)3 525 1 1677 4263 t
+10 CW f
+(.)2202 4263 w
+10 PA f
+( the use of)3 482( is analogous to)3 716( \(This)1 282('' always in the first column.)5 1298 4 2262 4263 t
+10 CW f
+(.EQ)720 4393 w
+10 PA f
+(and)925 4393 w
+10 CW f
+(.EN)1119 4393 w
+10 PA f
+(for equations or)2 704 1 1324 4393 t
+10 CW f
+(.TS)2053 4393 w
+10 PA f
+(and)2258 4393 w
+10 CW f
+(.TE)2452 4393 w
+10 PA f
+( example:)1 425( For)1 201(for tables.\))1 468 3 2657 4393 t
+9 CW f
+(.cstart)1134 4563 w
+(CH3)1350 4673 w
+(bond)1350 4783 w
+(CH2)1350 4893 w
+(bond)1350 5003 w
+(.cend)1134 5113 w
+10 PA f
+(will draw the ethyl group)4 1138 1 720 5303 t
+(CH)2534 5566 w
+7 PA f
+(3)2688 5601 w
+10 PA f
+2880 5535 2736 5535 Dl
+(CH)2894 5566 w
+7 PA f
+(2)3048 5601 w
+10 PA f
+3240 5535 3096 5535 Dl
+(and)720 5807 w
+9 CW f
+(.cstart)1134 5977 w
+(benzene)1350 6087 w
+(.cend)1134 6197 w
+10 PA f
+(draws a benzene ring:)3 974 1 720 6387 t
+3067 6670 2880 6562 Dl
+3067 6886 3067 6670 Dl
+2880 6994 3067 6886 Dl
+2693 6886 2880 6994 Dl
+2693 6670 2693 6886 Dl
+2880 6562 2693 6670 Dl
+2772 6778 216 216 De
+(Whatever is between)2 943 1 720 7208 t
+10 CW f
+(.cstart)1696 7208 w
+10 PA f
+(and)2149 7208 w
+10 CW f
+(.cend)2351 7208 w
+10 PA f
+(is converted into)2 755 1 2684 7208 t
+10 PI f
+(pic)3473 7208 w
+10 PA f
+(commands by)1 631 1 3626 7208 t
+10 PI f
+(chem)4291 7208 w
+10 PA f
+(; everything)1 541 1 4499 7208 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 1 3
+%%Page: 2 4
+/saveobj save def
+mark
+4 pagesetup
+10 PA f
+(- 2 -)2 166 1 2797 480 t
+(else is passed along untouched.)4 1391 1 720 850 t
+( is helpful to include comments among the commands that specify the struc-)12 3490(Sometimes it)1 580 2 970 1016 t
+( comment begins with a)4 1067( A)1 132(ture, especially when describing complex molecules.)5 2339 3 720 1146 t
+10 CW f
+(#)4286 1146 w
+10 PA f
+(; any characters)2 694 1 4346 1146 t
+( example:)1 425( For)1 201(from there to the end of the line are thrown away.)10 2207 3 720 1276 t
+9 CW f
+(.cstart)1134 1446 w
+( a rotated benzene ring)4 1242( #)1 324(benzene pointing right)2 1188 3 1350 1556 t
+(.cend)1134 1666 w
+10 PA f
+(produces the following diagram:)3 1450 1 720 1856 t
+2988 2405 3096 2218 Dl
+2772 2405 2988 2405 Dl
+2664 2218 2772 2405 Dl
+2772 2031 2664 2218 Dl
+2988 2031 2772 2031 Dl
+3096 2218 2988 2031 Dl
+2772 2218 216 216 De
+10 PB f
+( to Get Output)3 662(3. How)1 347 2 720 2749 t
+10 PA f
+( \256le that contains a)4 867(Once you've created a)3 1005 2 970 2915 t
+10 PI f
+(chem)2876 2915 w
+10 PA f
+(description, it must be converted into)5 1700 1 3126 2915 t
+10 PI f
+(troff)4860 2915 w
+10 PA f
+( do this, you must run your \256le through)8 1764(output. To)1 492 2 720 3045 t
+10 PI f
+(chem)3001 3045 w
+10 PA f
+(,)3209 3045 w
+10 PI f
+(pic)3259 3045 w
+10 PA f
+(,)3378 3045 w
+10 PI f
+(troff)3428 3045 w
+10 PA f
+(and an output \256lter.)3 889 1 3625 3045 t
+( to)1 118( you are only doing a single diagram, there's no need)10 2392( If)1 121(Let's take the simplest case \256rst.)5 1439 4 970 3211 t
+(use a macro package, so you should type the command line:)10 2658 1 720 3341 t
+9 CW f
+(chem filename | pic | troff >filename.out)6 2214 1 1080 3511 t
+10 CW f
+(filename.out)720 3701 w
+10 PA f
+( number of ways that you can see the)8 1706( are a)2 252( There)1 312(then contains your structure.)3 1298 4 1472 3701 t
+( can get Imagen output by typing:)6 1502(results. You)1 551 2 720 3831 t
+9 CW f
+(dcan filename.out)1 918 1 1080 4001 t
+10 PA f
+(For APS-5 typesetter output:)3 1267 1 720 4191 t
+9 CW f
+(apsend filename.out)1 1026 1 1080 4361 t
+10 PA f
+(With a Blit, running)3 881 1 720 4551 t
+10 PI f
+(mux)1626 4551 w
+10 PA f
+(or)1835 4551 w
+10 PI f
+(layers)1955 4551 w
+10 PA f
+(:)2194 4551 w
+9 CW f
+(proof filename.out)1 972 1 1080 4721 t
+10 PA f
+(With an AT&T PC 6300 using PC-PLOT \(4014 emulation\):)8 2548 1 720 4911 t
+9 CW f
+(tc filename.out)1 810 1 1080 5081 t
+10 PA f
+( poly\(benzyl glutamic acid\), printed \256rst on a typesetter,)8 2542(Here is a fairly complex structure,)5 1528 2 970 5307 t
+( can see that)3 539( You)1 232(then on the various lower-quality previewers.)5 2026 3 720 5437 t
+10 PI f
+(tc)3542 5437 w
+10 PA f
+(is only marginally satisfactory.)3 1361 1 3641 5437 t
+2276 6600 2204 6600 Dl
+2276 6384 2276 6600 Dl
+2348 6384 2276 6384 Dl
+2276 6816 2276 6600 Dl
+2348 6816 2276 6816 Dl
+2348 6600 2276 6600 Dl
+(NH)2351 6631 w
+2664 6600 2520 6600 Dl
+(CH)2674 6631 w
+10 S f
+(a)2720 6735 w
+2981 6600 2837 6600 Dl
+10 PA f
+(C)2989 6631 w
+3010 6398 3010 6542 Dl
+3039 6398 3039 6542 Dl
+(O)2985 6372 w
+3140 6600 3068 6600 Dl
+3140 6384 3140 6600 Dl
+3068 6384 3140 6384 Dl
+3212 6600 3140 6600 Dl
+3140 6816 3140 6600 Dl
+3068 6816 3140 6816 Dl
+10 PI f
+(n)3148 6836 w
+2708 6398 2708 6542 Dl
+10 PA f
+(CH)2678 6372 w
+7 PA f
+(2)2832 6407 w
+10 S f
+(b)2601 6361 w
+2708 6139 2708 6283 Dl
+10 PA f
+(CH)2678 6112 w
+7 PA f
+(2)2832 6147 w
+10 S f
+(g)2608 6102 w
+2708 5880 2708 6024 Dl
+10 PA f
+(C)2673 5853 w
+2546 5722 2670 5794 Dl
+2560 5697 2684 5769 Dl
+(O)2483 5700 w
+2862 5710 2738 5782 Dl
+(O)2854 5700 w
+3080 5669 2936 5669 Dl
+(CH)3112 5700 w
+7 PA f
+(2)3266 5735 w
+10 PA f
+(C)3301 5700 w
+7 PA f
+(6)3372 5735 w
+10 PA f
+(H)3407 5700 w
+7 PA f
+(5)3490 5735 w
+10 PA f
+(Typesetter \(apsend\))1 879 1 2440 7088 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 2 4
+%%Page: 3 5
+/saveobj save def
+mark
+5 pagesetup
+10 PA f
+(- 3 -)2 166 1 2797 480 t
+2276 1838 2204 1838 Dl
+2276 1622 2276 1838 Dl
+2348 1622 2276 1622 Dl
+2276 2054 2276 1838 Dl
+2348 2054 2276 2054 Dl
+2348 1838 2276 1838 Dl
+(NH)2351 1869 w
+2664 1838 2520 1838 Dl
+(CH)2674 1869 w
+10 S f
+(a)2720 1973 w
+2981 1838 2837 1838 Dl
+10 PA f
+(C)2989 1869 w
+3010 1636 3010 1780 Dl
+3039 1636 3039 1780 Dl
+(O)2985 1610 w
+3140 1838 3068 1838 Dl
+3140 1622 3140 1838 Dl
+3068 1622 3140 1622 Dl
+3212 1838 3140 1838 Dl
+3140 2054 3140 1838 Dl
+3068 2054 3140 2054 Dl
+10 PI f
+(n)3148 2074 w
+2708 1636 2708 1780 Dl
+10 PA f
+(CH)2678 1610 w
+7 PA f
+(2)2832 1645 w
+10 S f
+(b)2601 1599 w
+2708 1377 2708 1521 Dl
+10 PA f
+(CH)2678 1350 w
+7 PA f
+(2)2832 1385 w
+10 S f
+(g)2608 1340 w
+2708 1118 2708 1262 Dl
+10 PA f
+(C)2673 1091 w
+2546 960 2670 1032 Dl
+2560 935 2684 1007 Dl
+(O)2483 938 w
+2862 948 2738 1020 Dl
+(O)2854 938 w
+3080 907 2936 907 Dl
+(CH)3112 938 w
+7 PA f
+(2)3266 973 w
+10 PA f
+(C)3301 938 w
+7 PA f
+(6)3372 973 w
+10 PA f
+(H)3407 938 w
+7 PA f
+(5)3490 973 w
+10 PA f
+(Imagen laser printer \(dcan\))3 1205 1 2277 2326 t
+(Teletype 5620 \(proof\))2 942 1 2409 3896 t
+(Epson printer \(tc\))2 777 1 2491 5466 t
+( your formula contains)3 1052( If)1 131( to more complicated command lines.)5 1730(Now, back)1 489 4 970 5632 t
+10 PI f
+(eqn)4411 5632 w
+10 PA f
+(characters)4591 5632 w
+(\(such as)1 354 1 720 5762 t
+10 S f
+(a)1099 5762 w
+10 PA f
+(,)1162 5762 w
+10 S f
+(b)1212 5762 w
+10 PA f
+(, and)1 219 1 1267 5762 t
+10 S f
+(g)1511 5762 w
+10 PA f
+(\), you should include)3 938 1 1552 5762 t
+10 PI f
+(eqn)2515 5762 w
+10 PA f
+(in the command line:)3 934 1 2681 5762 t
+9 CW f
+(chem filename | pic | eqn '-d$$' | troff >filename.out)9 2916 1 1080 5932 t
+10 PA f
+(\(If you use the)3 635 1 720 6122 t
+10 PI f
+(eqn)1380 6122 w
+10 PA f
+(argument)1554 6122 w
+10 CW f
+(-d$$)2012 6122 w
+10 PA f
+(, you don't need)3 721 1 2252 6122 t
+10 CW f
+(delim $$)1 445 1 2998 6122 t
+10 PA f
+(in your input \256le\).)3 809 1 3468 6122 t
+( are embedded in the usual type of chemistry manuscript that contains)11 3274(If your structures)2 796 2 970 6288 t
+(equations and tables and uses a macro package, your command line will look something like:)14 4122 1 720 6418 t
+9 CW f
+(chem filename | pic | tbl | eqn | troff -mm)10 2322 1 1080 6588 t
+9 PI f
+(...)3456 6588 w
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 3 5
+%%Page: 4 6
+/saveobj save def
+mark
+6 pagesetup
+10 PA f
+(- 4 -)2 166 1 2797 480 t
+10 PB f
+( Chemical Formulas)2 910(4. Building)1 530 2 720 850 t
+10 PA f
+(The)970 1016 w
+10 PI f
+(chem)1169 1016 w
+10 PA f
+( provides for rings, heterocycles, bonds, atoms,)6 2126( It)1 125( rather small.)2 598(input language is)2 782 4 1409 1016 t
+( in the order that you write them)7 1506( are normally connected together)4 1499( Objects)1 383(and stereochemistry.)1 932 4 720 1146 t
+(down.)720 1276 w
+10 PI f
+(chem)1059 1276 w
+10 PA f
+( but provides ways to specify precisely)6 1764(tries to connnect them at the natural places,)7 1969 2 1307 1276 t
+( isn't smart)2 523(where things are placed and how they are connected for those situations where it)13 3797 2 720 1406 t
+( all else fails, because)4 946( If)1 121(enough to guess right.)3 999 3 720 1536 t
+10 PI f
+(chem)2815 1536 w
+10 PA f
+(is a)1 150 1 3052 1536 t
+10 PI f
+(pic)3232 1536 w
+10 PA f
+(preprocessor, it is possible to include)5 1659 1 3381 1536 t
+10 PI f
+(pic)720 1666 w
+10 PA f
+(statements in the middle of a diagram to draw things that are not provided for by)15 3609 1 864 1666 t
+10 PI f
+(chem)4498 1666 w
+10 PA f
+(itself.)4731 1666 w
+( the diagram is written on a single line; blank lines and comments can be)14 3220(Each component of)2 850 2 970 1832 t
+(used freely to make the description easy to read later on.)10 2504 1 720 1962 t
+10 PB f
+(Bonds, Directions, and Atoms)3 1362 1 720 2222 t
+10 PA f
+( in the following general form, where the brackets specify optional)10 3168(Bonds are speci\256ed)2 902 2 970 2388 t
+(quali\256ers:)720 2518 w
+9 PI f
+( [)1 53(bondtype [direction])1 767 2 1080 2688 t
+9 CW f
+(length)1900 2688 w
+9 PI f
+(n] [)1 133 1 2278 2688 t
+9 CW f
+(from)2411 2688 w
+9 PI f
+(name] [)1 278 1 2681 2688 t
+9 CW f
+(to)2959 2688 w
+9 PI f
+(name] [attribute])1 624 1 3121 2688 t
+10 PA f
+( the)1 167( First,)1 278( look at them one at a time.)7 1211( Let's)1 264(The options must appear in this order.)6 1710 5 720 2878 t
+10 PI f
+(bondtype)4378 2878 w
+10 PA f
+(.)4754 2878 w
+10 PI f
+(chem)4832 2878 w
+10 PA f
+( are invoked by the commands)5 1492( These)1 333( double, and triple bonds.)4 1241(knows about single,)2 938 4 720 3008 t
+10 CW f
+(bond)4775 3008 w
+10 PA f
+(,)5015 3008 w
+10 CW f
+(double bond)1 636 1 720 3138 t
+10 PA f
+(, and)1 230 1 1356 3138 t
+10 CW f
+(triple bond)1 636 1 1622 3138 t
+10 PA f
+(, respectively.)1 619 1 2258 3138 t
+10 PI f
+(chem)2938 3138 w
+10 PA f
+(also understands)1 765 1 3182 3138 t
+10 CW f
+(front bond)1 576 1 3983 3138 t
+10 PA f
+(and)4595 3138 w
+10 CW f
+(back)4800 3138 w
+(bond)720 3268 w
+10 PA f
+(to specify stereochemistry.)2 1179 1 985 3268 t
+(The)970 3434 w
+10 PI f
+(direction)1166 3434 w
+10 PA f
+(of bonds in)2 504 1 1561 3434 t
+10 PI f
+(chem)2094 3434 w
+10 PA f
+(is handled in several ways.)4 1208 1 2331 3434 t
+10 PI f
+(chem)3593 3434 w
+10 PA f
+(recognizes)3830 3434 w
+10 CW f
+(up)4330 3434 w
+10 PA f
+(,)4450 3434 w
+10 CW f
+(down)4505 3434 w
+10 PA f
+(,)4745 3434 w
+10 CW f
+(left)4800 3434 w
+10 PA f
+(and)720 3564 w
+10 CW f
+(right)920 3564 w
+10 PA f
+(, as well as the corresponding compass points)7 2051 1 1220 3564 t
+10 CW f
+(n)3301 3564 w
+10 PA f
+(,)3361 3564 w
+10 CW f
+(s)3416 3564 w
+10 PA f
+(,)3476 3564 w
+10 CW f
+(w)3531 3564 w
+10 PA f
+(and)3621 3564 w
+10 CW f
+(e)3820 3564 w
+10 PA f
+( the direction isn't)3 816(. When)1 344 2 3880 3564 t
+( corresponds to)2 703( Zero)1 270( easiest to use actual angles.)5 1279(one of these, it's)3 737 4 720 3694 t
+10 CW f
+(up)3744 3694 w
+10 PA f
+(or)3899 3694 w
+10 CW f
+(n)4029 3694 w
+10 PA f
+(, 90 to)2 283 1 4089 3694 t
+10 CW f
+(right)4407 3694 w
+10 PA f
+(, \26190 to)2 333 1 4707 3694 t
+10 CW f
+(left)720 3824 w
+10 PA f
+( example, this input:)3 902( For)1 201(, and so on.)3 504 3 960 3824 t
+9 CW f
+(.cstart)1134 3994 w
+(bond right)1 540 1 1350 4104 t
+(bond 60)1 378 1 1350 4214 t
+(bond 120)1 432 1 1350 4324 t
+(bond 60)1 378 1 1350 4434 t
+(bond 120)1 432 1 1350 4544 t
+(bond down)1 486 1 1350 4654 t
+(.cend)1134 4764 w
+10 PA f
+(produces the following stick structure:)4 1705 1 720 4954 t
+2703 5201 2559 5201 Dl
+2827 5129 2703 5201 Dl
+2951 5201 2827 5129 Dl
+3076 5129 2952 5201 Dl
+3201 5201 3077 5129 Dl
+3201 5345 3201 5201 Dl
+(Of course bonds usually connect atoms or groups, as in this description of methyl acetate:)14 3960 1 970 5595 t
+9 CW f
+(.cstart)1134 5765 w
+( the 3 is automatically turned into a subscript)8 2538(CH3 #)1 540 2 1134 5875 t
+( the implicit direction is right)5 1728(bond #)1 540 2 1134 5985 t
+(# implicit connection is to right side of CH3)8 2430 1 1620 6095 t
+(C)1134 6205 w
+( by default, from the substituent C)6 1890( #)1 324(double bond 30)2 756 3 1134 6315 t
+(O)1134 6425 w
+( must be "from C"; otherwise would leave from O)9 2538( #)1 270(bond 120 from C)3 810 3 1134 6535 t
+(O)1134 6645 w
+(bond right)1 540 1 1134 6755 t
+(CH3)1134 6865 w
+(.cend)1134 6975 w
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 4 6
+%%Page: 5 7
+/saveobj save def
+mark
+7 pagesetup
+10 PA f
+(- 5 -)2 166 1 2797 480 t
+(CH)2398 1144 w
+7 PA f
+(3)2552 1179 w
+10 PA f
+2744 1113 2600 1113 Dl
+(C)2752 1144 w
+2877 942 2805 1066 Dl
+2902 956 2830 1080 Dl
+(O)2881 938 w
+2941 1226 2817 1154 Dl
+(O)2933 1297 w
+3160 1266 3016 1266 Dl
+(CH)3174 1297 w
+7 PA f
+(3)3328 1332 w
+10 PA f
+( on the same)3 567(These commands could be written more compactly by putting the substituents)10 3503 2 970 1574 t
+(lines as bonds, separated by semicolons \(spaces matter!\), as in:)9 2753 1 720 1704 t
+9 CW f
+(.cstart)1134 1874 w
+(CH3)1350 1984 w
+(bond ; C)2 432 1 1350 2094 t
+(double bond 30 ; O)4 972 1 1350 2204 t
+(bond 120 from C ; O)5 1026 1 1350 2314 t
+(bond right ; CH3)3 864 1 1350 2424 t
+(.cend)1134 2534 w
+10 PA f
+(A group or moiety like CH)5 1204 1 970 2760 t
+7 PA f
+(3)2185 2780 w
+10 PA f
+( group must begin with a)5 1133( A)1 131( of characters.)2 618(is written as a string)4 903 4 2255 2760 t
+( automatically converted to subscripts and)5 1943( are)1 177( Numbers)1 480(capital letter, as in HCl or N\(C2H5\)2.)6 1720 4 720 2890 t
+( For)1 218( a fractional value, as in N2.5H\).)6 1519(dots are centered \(unless the combination appears to be)8 2583 3 720 3020 t
+(example:)720 3150 w
+9 CW f
+(.cstart)1134 3320 w
+(HCl.H2O)1350 3430 w
+(.cend)1134 3540 w
+10 PA f
+(produces)720 3730 w
+(HCl)2677 3993 w
+(.)2860 3963 w
+(H)2885 3993 w
+7 PA f
+(2)2968 4028 w
+10 PA f
+(O)3003 3993 w
+(but attempting to do the same with CaSO)7 1838 1 720 4234 t
+7 PA f
+(4)2569 4254 w
+10 PA f
+(.)2620 4204 w
+(2 H)1 141 1 2653 4234 t
+7 PA f
+(2)2805 4254 w
+10 PA f
+(O, i.e.,)1 281 1 2856 4234 t
+9 CW f
+(.cstart)1134 4404 w
+(CaSO4.2H2O)1350 4514 w
+(.cend)1134 4624 w
+10 PA f
+(produces)720 4814 w
+(CaSO)2611 5077 w
+7 PA f
+(4.2)2864 5112 w
+10 PA f
+(H)2952 5077 w
+7 PA f
+(2)3035 5112 w
+10 PA f
+(O)3070 5077 w
+(You will have to use)4 902 1 720 5318 t
+10 PI f
+(eqn)1647 5318 w
+10 PA f
+(or the ``)2 340 1 1821 5318 t
+10 CW f
+(right of)1 445 1 2161 5318 t
+10 PA f
+('' construct in unusual cases like this.)6 1636 1 2606 5318 t
+( the last thing mentioned, but it may be manually)9 2308(Normally a group is placed right after)6 1762 2 970 5484 t
+(positioned by)1 606 1 720 5614 t
+10 PI f
+(pic)1351 5614 w
+10 PA f
+(-like commands, e.g.,)2 935 1 1470 5614 t
+9 CW f
+(CH3 at C + \(0.5, 0.5\))5 1134 1 1350 5784 t
+10 PA f
+(We'll see more examples of this later.)6 1645 1 720 5974 t
+( acetate example, the carbon atom C was used both to draw something and as)14 3473(In the methyl)2 597 2 970 6140 t
+(a)720 6270 w
+10 PI f
+(name)802 6270 w
+10 PA f
+( the group or)3 598( \(When)1 353( for a place.)3 527( atom or a group always de\256nes a name)8 1820( An)1 193(for a place.)2 498 6 1051 6270 t
+( left after)2 399(moiety contains special characters, like the parentheses in N\(C2H5\)2, the name is what is)13 3921 2 720 6400 t
+( we'll see that we sometimes need to invent names)9 2274( Later)1 287( are stripped out.\))3 807(the special characters)2 952 4 720 6530 t
+(for rings and bonds so we can refer back to them.)10 2177 1 720 6660 t
+(Each new occurrence of a name overrides the de\256nition of the previous one:)12 3358 1 970 6826 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 5 7
+%%Page: 6 8
+/saveobj save def
+mark
+8 pagesetup
+10 PA f
+(- 6 -)2 166 1 2797 480 t
+9 CW f
+(.cstart)1134 890 w
+( 1st definition of C)4 1080( #)1 702(bond ; C)2 432 3 1350 1000 t
+(bond up from C)3 756 1 1350 1110 t
+(bond down from C)3 864 1 1350 1220 t
+( 2nd definition of C)4 1080( #)1 540(bond right from C ; C)5 1134 3 1350 1330 t
+(bond up from C)3 756 1 1350 1440 t
+(bond down from C)3 864 1 1350 1550 t
+( 3rd definition of C)4 1080( #)1 540(bond right from C ; C)5 1134 3 1350 1660 t
+(bond up from C)3 756 1 1350 1770 t
+(bond down from C)3 864 1 1350 1880 t
+(bond right from C)3 918 1 1350 1990 t
+(.cend)1134 2100 w
+10 PA f
+2606 2536 2462 2536 Dl
+(C)2614 2567 w
+2649 2335 2649 2479 Dl
+2649 2738 2649 2594 Dl
+2836 2536 2692 2536 Dl
+(C)2844 2567 w
+2879 2335 2879 2479 Dl
+2879 2738 2879 2594 Dl
+3066 2536 2922 2536 Dl
+(C)3075 2567 w
+3110 2335 3110 2479 Dl
+3110 2738 3110 2594 Dl
+3297 2536 3153 2536 Dl
+(BP is a special name that is used to specify a ``branch point,'' a place where no moiety is)18 4070 1 970 2988 t
+( an example of its use:)5 975(printed. Here's)1 693 2 720 3118 t
+9 CW f
+(.cstart)1134 3288 w
+(# this is the isopropyl group)5 1566 1 1134 3398 t
+( BP is right end of this bond)7 1566( #)1 432(bond 120 ; BP)3 702 3 1350 3508 t
+(bond -120 from BP)3 918 1 1350 3618 t
+(bond right from BP ; C)5 1188 1 1350 3728 t
+(front bond up ; CH3)4 1026 1 1350 3838 t
+(back bond down from C ; D)6 1350 1 1350 3948 t
+(bond right from C ; BP)5 1188 1 1350 4058 t
+(# redefine BP to mean the center carbon of this t-butyl group)11 3294 1 1134 4168 t
+(bond up from BP)3 810 1 1350 4278 t
+(bond right from BP)3 972 1 1350 4388 t
+(bond down from BP)3 918 1 1350 4498 t
+(.cend)1134 4608 w
+10 PA f
+2683 5159 2559 5087 Dl
+2559 5231 2683 5159 Dl
+2827 5159 2683 5159 Dl
+(C)2835 5190 w
+2870 5102 2852 4958 Dl
+2870 5102 2855 4958 Dl
+2869 5101 2857 4957 Dl
+2870 5101 2860 4957 Dl
+2869 5101 2862 4957 Dl
+2870 5101 2865 4957 Dl
+2870 5101 2868 4956 Dl
+2870 5101 2870 4956 Dl
+2871 5101 2873 4956 Dl
+2870 5101 2875 4957 Dl
+2871 5101 2878 4957 Dl
+2871 5101 2881 4957 Dl
+2871 5101 2883 4957 Dl
+2871 5102 2886 4958 Dl
+2870 5102 2888 4958 Dl
+2870 4958 2870 5102 Dl
+(CH)2841 4931 w
+7 PA f
+(3)2995 4966 w
+10 PA f
+2857 5235 2885 5235 Dl
+2857 5253 2885 5253 Dl
+2857 5271 2885 5271 Dl
+2857 5289 2885 5289 Dl
+2857 5307 2885 5307 Dl
+2857 5325 2885 5325 Dl
+2857 5343 2885 5343 Dl
+(D)2832 5449 w
+3057 5159 2913 5159 Dl
+3057 5015 3057 5159 Dl
+3201 5159 3057 5159 Dl
+3057 5303 3057 5159 Dl
+10 PI f
+(chem)970 5726 w
+10 PA f
+( the proper parts of moieties, for example)7 1851(takes considerable pains to connect bonds to)6 1976 2 1213 5726 t
+( is possible to override the automatic connec-)7 2062( It)1 128(by connecting to carbon atoms where possible.)6 2130 3 720 5856 t
+(tions to carbon, as we'll see later in this section.)9 2087 1 720 5986 t
+( a length in inches.)4 831(The default bond length is 0.2 inches, but it can be adjusted by specifying)13 3239 2 970 6152 t
+( in this structure of isotactic poly\(methyl methacrylate\), variable bond lengths are)11 3731(For example,)1 589 2 720 6282 t
+( the bond attribute ``dotted''; ``dashed'')5 1854( also)1 224( Note)1 292(used to produce an uncrowded structure.)5 1950 4 720 6412 t
+(bonds are also available.)3 1081 1 720 6542 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 6 8
+%%Page: 7 9
+/saveobj save def
+mark
+9 pagesetup
+10 PA f
+(- 7 -)2 166 1 2797 480 t
+9 CW f
+(.cstart)1134 890 w
+(bond dotted)1 594 1 1350 1000 t
+(bond right ; BP)3 810 1 1350 1110 t
+(bond up from BP ; C)5 1026 1 1350 1220 t
+(double bond -60 from C ; O)6 1404 1 1350 1330 t
+(bond 60 length .1 from C ; OCH3)7 1674 1 1350 1440 t
+(bond down from BP ; CH3)5 1242 1 1350 1550 t
+(# begin second segment of polymer)5 1782 1 1134 1660 t
+(bond right length .5 from BP ; BP)7 1782 1 1350 1770 t
+(bond up length .1 from BP ; H)7 1566 1 1350 1880 t
+(bond down length .1 from BP ; H)7 1674 1 1350 1990 t
+(# begin third segment of polymer)5 1728 1 1134 2100 t
+(bond right length .5 from BP ; BP)7 1782 1 1350 2210 t
+(bond up from BP ; C)5 1026 1 1350 2320 t
+(double bond -60 from C ; O)6 1404 1 1350 2430 t
+(bond 60 length .1 from C ; OCH3)7 1674 1 1350 2540 t
+(bond down from BP ; CH3)5 1242 1 1350 2650 t
+(# begin fourth segment of polymer)5 1782 1 1134 2760 t
+(bond right length .5 from BP ; BP)7 1782 1 1350 2870 t
+(bond up length .1 from BP ; H)7 1566 1 1350 2980 t
+(bond down length .1 from BP ; H)7 1674 1 1350 3090 t
+(# begin fifth segment of polymer)5 1728 1 1134 3200 t
+(bond right length .5 from BP ; BP)7 1782 1 1350 3310 t
+(bond up from BP ; C)5 1026 1 1350 3420 t
+(double bond -60 from C ; O)6 1404 1 1350 3530 t
+(bond 60 length .1 from C ; OCH3)7 1674 1 1350 3640 t
+(bond down from BP ; CH3)5 1242 1 1350 3750 t
+(bond right from BP)3 972 1 1350 3860 t
+(bond dotted)1 594 1 1350 3970 t
+(.cend)1134 4080 w
+7 PA f
+(. . . . .)4 162 1 1815 4730 t
+10 PA f
+2113 4727 1969 4727 Dl
+2113 4583 2113 4727 Dl
+(C)2078 4556 w
+1951 4425 2075 4497 Dl
+1965 4400 2089 4472 Dl
+(O)1888 4403 w
+2205 4449 2143 4485 Dl
+(OCH)2210 4439 w
+7 PA f
+(3)2443 4474 w
+10 PA f
+2113 4871 2113 4727 Dl
+(CH)2083 4959 w
+7 PA f
+(3)2237 4994 w
+10 PA f
+2473 4727 2113 4727 Dl
+2473 4655 2473 4727 Dl
+(H)2432 4628 w
+2473 4799 2473 4727 Dl
+(H)2432 4887 w
+2833 4727 2473 4727 Dl
+2833 4583 2833 4727 Dl
+(C)2798 4556 w
+2671 4425 2795 4497 Dl
+2685 4400 2809 4472 Dl
+(O)2608 4403 w
+2925 4449 2863 4485 Dl
+(OCH)2930 4439 w
+7 PA f
+(3)3163 4474 w
+10 PA f
+2833 4871 2833 4727 Dl
+(CH)2803 4959 w
+7 PA f
+(3)2957 4994 w
+10 PA f
+3193 4727 2833 4727 Dl
+3193 4655 3193 4727 Dl
+(H)3152 4628 w
+3193 4799 3193 4727 Dl
+(H)3152 4887 w
+3553 4727 3193 4727 Dl
+3553 4583 3553 4727 Dl
+(C)3518 4556 w
+3391 4425 3515 4497 Dl
+3405 4400 3529 4472 Dl
+(O)3328 4403 w
+3645 4449 3583 4485 Dl
+(OCH)3650 4439 w
+7 PA f
+(3)3883 4474 w
+10 PA f
+3553 4871 3553 4727 Dl
+(CH)3523 4959 w
+7 PA f
+(3)3677 4994 w
+10 PA f
+3697 4727 3553 4727 Dl
+7 PA f
+(. . . . .)4 162 1 3687 4730 t
+10 PB f
+(Rings)720 5330 w
+10 PA f
+(Rings are speci\256ed in the following general form:)7 2181 1 970 5496 t
+9 PI f
+([ring name:])1 456 1 1080 5666 t
+9 CW f
+(ring)1605 5666 w
+9 PI f
+([n] [direction] [heteroatoms] [doublebond pattern])4 1816 1 1821 5666 t
+10 PA f
+( look at each of these in more)7 1393( We'll)1 299( optional parts are enclosed in square brackets.)7 2173(where the)1 455 4 720 5856 t
+(detail.)720 5986 w
+(Cyclopropane through cyclooctane can be obtained by simply saying)8 3052 1 970 6152 t
+10 CW f
+(ring3)4047 6152 w
+10 PA f
+(,)4347 6152 w
+10 CW f
+(ring4)4397 6152 w
+10 PA f
+(, and so)2 343 1 4697 6152 t
+(on:)720 6282 w
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 7 9
+%%Page: 8 10
+/saveobj save def
+mark
+10 pagesetup
+10 PA f
+(- 8 -)2 166 1 2797 480 t
+9 CW f
+(.cstart)1134 890 w
+(R3: ring3)1 486 1 1134 1000 t
+(R4: ring4 at R3 + \(.75,0\))5 1350 1 1134 1110 t
+(R5: ring5 at R4 + \(.75,0\))5 1350 1 1134 1220 t
+(R6: ring6 at R5 + \(.75,0\))5 1350 1 1134 1330 t
+( at R6 + \(.75,0\))4 864(B: benzene)1 594 2 1134 1440 t
+(R7: ring7 at B + \(.75,0\))5 1296 1 1134 1550 t
+(R8: ring8 at R7 + \(.75,0\))5 1350 1 1134 1660 t
+(.cend)1134 1770 w
+10 PA f
+1281 2380 1173 2193 Dl
+1065 2380 1281 2380 Dl
+1173 2193 1065 2380 Dl
+1865 2286 1713 2134 Dl
+1713 2439 1865 2287 Dl
+1561 2287 1713 2439 Dl
+1712 2135 1560 2287 Dl
+2427 2246 2253 2120 Dl
+2361 2452 2427 2247 Dl
+2145 2453 2361 2453 Dl
+2079 2248 2145 2453 Dl
+2252 2121 2078 2247 Dl
+2980 2179 2793 2071 Dl
+2980 2395 2980 2179 Dl
+2793 2503 2980 2395 Dl
+2606 2395 2793 2503 Dl
+2605 2179 2605 2395 Dl
+2792 2071 2605 2179 Dl
+3520 2179 3333 2071 Dl
+3520 2395 3520 2179 Dl
+3333 2503 3520 2395 Dl
+3146 2395 3333 2503 Dl
+3145 2179 3145 2395 Dl
+3332 2071 3145 2179 Dl
+3225 2287 216 216 De
+4067 2143 3873 2050 Dl
+4115 2354 4067 2144 Dl
+3981 2523 4115 2354 Dl
+3765 2524 3981 2524 Dl
+3631 2355 3765 2524 Dl
+3678 2144 3630 2354 Dl
+3872 2051 3678 2144 Dl
+4612 2087 4413 2005 Dl
+4694 2286 4612 2087 Dl
+4613 2486 4695 2287 Dl
+4413 2568 4612 2486 Dl
+4214 2487 4413 2569 Dl
+4131 2287 4213 2486 Dl
+4212 2088 4130 2287 Dl
+4412 2005 4213 2087 Dl
+(``)720 2783 w
+10 CW f
+(ring)776 2783 w
+10 PA f
+( for)1 166('' is a synonym)3 701 2 1016 2783 t
+10 CW f
+(ring6)1921 2783 w
+10 PA f
+( attribute ``)2 513(. The)1 255 2 2221 2783 t
+10 CW f
+(at)2989 2783 w
+10 PI f
+(name)3147 2783 w
+10 CW f
+(+ \(.75,0\))1 518 1 3410 2783 t
+10 PA f
+('' is a)2 253 1 3928 2783 t
+10 PI f
+(pic)4219 2783 w
+10 PA f
+(command that)1 656 1 4384 2783 t
+(puts each object 3/4 inch to the right of \(the center of\) the previous one.)14 3163 1 720 2913 t
+( vertex, or vertex 1,)4 913( is, the top-most)3 754( That)1 267(Note that all of these rings are ``pointing up''.)8 2136 4 970 3079 t
+( is especially obvious for cyclobutane \(``)6 1763( This)1 241(points toward the top of the page.)6 1508 3 720 3209 t
+10 CW f
+(ring4)4232 3209 w
+10 PA f
+( is)1 96(''\), which)1 412 2 4532 3209 t
+( normal orientation has the)4 1241( The)1 228(oriented in a manner that at \256rst appears strange to a chemist.)11 2851 3 720 3339 t
+(``point'' or vertex 1 rotated 45 degrees, so it is written as)11 2478 1 720 3469 t
+9 CW f
+(ring4 pointing 45)2 918 1 1080 3639 t
+10 PA f
+2988 4090 2988 3874 Dl
+2772 4090 2988 4090 Dl
+2772 3874 2772 4090 Dl
+2988 3874 2772 3874 Dl
+( is the \256rst vertex,)4 848(The vertices of rings are always numbered the same way: the ``point'')11 3222 2 970 4340 t
+(which is called)2 656 1 720 4470 t
+10 CW f
+(.V1)1402 4470 w
+10 PA f
+(, and)1 220 1 1582 4470 t
+10 CW f
+(.V2)1828 4470 w
+10 PA f
+(,)2008 4470 w
+10 CW f
+(.V3)2059 4470 w
+10 PA f
+( example, the fol-)3 764( For)1 201(, etc., continue clockwise around the ring.)6 1836 3 2239 4470 t
+(lowing structures show that the ``point'' in cyclopentane, as in any other ring, is always num-)15 4320 1 720 4600 t
+(bered 1, but its position follows the direction in which the ring points:)12 3085 1 720 4730 t
+2943 5033 2769 4907 Dl
+2878 5239 2944 5034 Dl
+2661 5239 2877 5239 Dl
+2595 5034 2661 5239 Dl
+2769 4908 2595 5034 Dl
+7 PA f
+(1)2752 4982 w
+(2)2875 5071 w
+(3 4)1 -116 1 2828 5215 t
+(5)2630 5071 w
+10 HB f
+(ring5 \(or ring5 pointing up\))4 1284 1 3129 5093 t
+2725 5517 2599 5691 Dl
+2930 5582 2725 5516 Dl
+2931 5799 2931 5583 Dl
+2726 5865 2931 5799 Dl
+2599 5691 2725 5865 Dl
+7 PA f
+(1)2637 5711 w
+(2)2726 5588 w
+(3)2870 5635 w
+(4)2870 5786 w
+(5)2726 5833 w
+10 HB f
+(ring5 pointing left)2 845 1 3125 5711 t
+2595 6349 2769 6475 Dl
+2661 6143 2595 6348 Dl
+2877 6142 2661 6142 Dl
+2943 6347 2877 6142 Dl
+2770 6474 2944 6348 Dl
+7 PA f
+(1)2752 6440 w
+(2)2630 6351 w
+(3 4)1 186 1 2677 6207 t
+(5)2875 6351 w
+10 HB f
+(ring5 pointing down)2 956 1 3129 6329 t
+2805 7090 2931 6916 Dl
+2599 7024 2804 7090 Dl
+2599 6808 2599 7024 Dl
+2804 6742 2599 6808 Dl
+2930 6915 2804 6741 Dl
+7 PA f
+(1)2859 6936 w
+(2)2770 7058 w
+(3)2626 7011 w
+(4)2626 6860 w
+(5)2770 6813 w
+10 HB f
+(ring5 pointing right)2 917 1 3125 6936 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 8 10
+%%Page: 9 11
+/saveobj save def
+mark
+11 pagesetup
+10 PA f
+(- 9 -)2 166 1 2797 480 t
+( of 5-membered rings: the pentagonal)5 1883(There are two types)3 1010 2 970 850 t
+10 CW f
+(ring5)3933 850 w
+10 PA f
+(above, and the)2 737 1 4303 850 t
+(``)720 980 w
+10 CW f
+(flatring)776 980 w
+10 PA f
+(.'' The)1 298 1 1256 980 t
+10 CW f
+(flatring)1579 980 w
+10 PA f
+(is useful for fusing onto the sides of other rings.)9 2108 1 2084 980 t
+2142 1263 1955 1155 Dl
+2142 1479 2142 1263 Dl
+1768 1479 2142 1479 Dl
+1768 1263 1768 1479 Dl
+1955 1155 1768 1263 Dl
+10 HB f
+(\257atring pointing up)2 911 1 1687 1754 t
+3581 1432 3768 1540 Dl
+3582 1216 3582 1432 Dl
+3956 1216 3582 1216 Dl
+3956 1432 3956 1216 Dl
+3769 1540 3956 1432 Dl
+(\257atring pointing down)2 1050 1 3431 1815 t
+10 PA f
+( sub-)1 224(It is handy \(and sometimes essential!\) to name the rings so you can properly add the)15 3846 2 970 2103 t
+( example:)1 425(stituents. For)1 604 2 720 2233 t
+9 CW f
+(.cstart)1134 2403 w
+(R: ring3)1 540 1 1350 2513 t
+(back bond 120 from R.V2 ; C2H5)6 1620 1 1620 2623 t
+(front bond -120 from R.V3 ; HO)6 1620 1 1620 2733 t
+(.cend)1134 2843 w
+10 PA f
+2945 3265 2837 3078 Dl
+2729 3265 2945 3265 Dl
+2837 3078 2729 3265 Dl
+2953 3286 2967 3261 Dl
+2969 3295 2983 3270 Dl
+2985 3304 2999 3279 Dl
+3000 3313 3014 3288 Dl
+3016 3322 3030 3297 Dl
+3031 3331 3045 3306 Dl
+3047 3340 3061 3315 Dl
+(C)3074 3408 w
+7 PA f
+(2)3145 3443 w
+10 PA f
+(H)3180 3408 w
+7 PA f
+(5)3263 3443 w
+10 PA f
+2728 3265 2613 3352 Dl
+2728 3265 2611 3350 Dl
+2728 3265 2610 3348 Dl
+2728 3265 2608 3346 Dl
+2728 3265 2607 3344 Dl
+2729 3265 2606 3342 Dl
+2728 3266 2604 3340 Dl
+2729 3265 2603 3337 Dl
+2727 3265 2601 3335 Dl
+2728 3264 2600 3332 Dl
+2728 3265 2599 3330 Dl
+2728 3265 2598 3328 Dl
+2728 3265 2597 3326 Dl
+2727 3264 2595 3323 Dl
+2728 3265 2595 3321 Dl
+2605 3337 2729 3265 Dl
+(HO)2449 3408 w
+(The ring itself is named)4 1040 1 720 3649 t
+10 CW f
+(R)1785 3649 w
+10 PA f
+(; its second vertex is named)5 1215 1 1845 3649 t
+10 CW f
+(R.V2)3085 3649 w
+10 PA f
+( another example,)2 792(. As)1 195 2 3325 3649 t
+9 CW f
+(.cstart)1134 3819 w
+( pointing right)2 810(R: benzene)1 648 2 1350 3929 t
+(bond left from R.V4 ; HO)5 1296 1 1620 4039 t
+(bond -150 from R.V3 ; CH3O)5 1404 1 1620 4149 t
+(bond right from R.V1 ; C)5 1296 1 1620 4259 t
+(double bond up from C ; O)6 1350 1 1620 4369 t
+(bond right from C ; N)5 1134 1 1620 4479 t
+(bond 45 ; C2H5)3 756 1 1620 4589 t
+(bond 135 from N ; C2H5)5 1188 1 1620 4699 t
+(.cend)1134 4809 w
+10 PA f
+2747 5547 2855 5360 Dl
+2531 5548 2747 5548 Dl
+2423 5361 2531 5548 Dl
+2531 5173 2423 5360 Dl
+2747 5173 2531 5173 Dl
+2855 5360 2747 5173 Dl
+2531 5360 216 216 De
+2279 5360 2423 5360 Dl
+(HO)2112 5391 w
+2459 5672 2531 5548 Dl
+(CH)2187 5744 w
+7 PA f
+(3)2341 5779 w
+10 PA f
+(O)2376 5744 w
+2999 5360 2855 5360 Dl
+(C)3008 5391 w
+3028 5159 3028 5303 Dl
+3057 5159 3057 5303 Dl
+(O)3004 5132 w
+3230 5360 3086 5360 Dl
+(N)3232 5391 w
+3404 5218 3303 5319 Dl
+(C)3410 5208 w
+7 PA f
+(2)3481 5243 w
+10 PA f
+(H)3516 5208 w
+7 PA f
+(5)3599 5243 w
+10 PA f
+3404 5502 3303 5401 Dl
+(C)3410 5575 w
+7 PA f
+(2)3481 5610 w
+10 PA f
+(H)3516 5575 w
+7 PA f
+(5)3599 5610 w
+10 PA f
+( bond,)1 291(If you do not specify an explicit connection point for a substituent)11 3028 2 970 6021 t
+10 PI f
+(chem)4326 6021 w
+10 PA f
+(will try to)2 461 1 4579 6021 t
+( example, in the two diagrams immediately above, it)8 2323( For)1 201( of the bond.)3 556(deduce it from the direction)4 1240 4 720 6151 t
+(is possible to omit all of the)6 1209 1 720 6281 t
+10 CW f
+(.V)1954 6281 w
+10 PI f
+(n)2074 6281 w
+10 PA f
+('s.)2130 6281 w
+10 PI f
+(Double bonds)1 551 1 970 6447 t
+10 PA f
+(within rings are speci\256ed by naming vertices between which they appear:)10 3259 1 1546 6447 t
+9 CW f
+(.cstart)1134 6617 w
+(ring double 1,2 3,4 5,6)4 1242 1 1350 6727 t
+(.cend)1134 6837 w
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 9 11
+%%Page: 10 12
+/saveobj save def
+mark
+12 pagesetup
+10 PA f
+(- 10 -)2 216 1 2772 480 t
+3067 958 2880 850 Dl
+3039 974 2880 882 Dl
+3067 1174 3067 958 Dl
+2880 1282 3067 1174 Dl
+2880 1250 3039 1158 Dl
+2693 1174 2880 1282 Dl
+2693 958 2693 1174 Dl
+2721 975 2721 1158 Dl
+2880 850 2693 958 Dl
+9 CW f
+(.cstart)1134 1536 w
+(ring8 triple 3,4)2 864 1 1350 1646 t
+(.cend)1134 1756 w
+10 PA f
+3058 2073 2859 1991 Dl
+3140 2272 3058 2073 Dl
+3059 2472 3141 2273 Dl
+3029 2442 3099 2273 Dl
+3088 2502 3183 2273 Dl
+2859 2554 3058 2472 Dl
+2660 2473 2859 2555 Dl
+2577 2273 2659 2472 Dl
+2659 2074 2577 2273 Dl
+2858 1991 2659 2073 Dl
+(A circle can be placed inside any ring by using the modi\256er)11 2625 1 970 2805 t
+10 CW f
+(aromatic)3620 2805 w
+10 PA f
+(:)4100 2805 w
+9 CW f
+(.cstart)1134 2975 w
+( ring7)1 324(R: aromatic)1 648 2 1134 3085 t
+("+" at R)2 432 1 1350 3195 t
+(.cend)1134 3305 w
+10 PA f
+3073 3633 2879 3540 Dl
+3122 3843 3074 3633 Dl
+2988 4013 3122 3844 Dl
+2771 4013 2987 4013 Dl
+2637 3844 2771 4013 Dl
+2685 3634 2637 3844 Dl
+2879 3540 2685 3633 Dl
+2755 3789 249 249 De
+(+)2849 3796 w
+( exam-)1 305( For)1 210( each ring.)2 476(Fused ring structures are formed by specifying a common vertex on)10 3079 4 970 4263 t
+(ple, consider cholestanol:)2 1115 1 720 4393 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 10 12
+%%Page: 11 13
+/saveobj save def
+mark
+13 pagesetup
+10 PA f
+(- 11 -)2 216 1 2772 480 t
+9 CW f
+(.cstart)1134 890 w
+(R1: ring6)1 486 1 1134 1000 t
+( this puts a label at R1)6 1296( #)1 324("R1" at R1)2 540 3 1350 1110 t
+(front bond -120 from R1.V5 ; HO)6 1674 1 1350 1220 t
+(# the following line says "fuse the next six-)8 2430 1 1620 1330 t
+(# membered ring with its 6th vertex joining)7 2322 1 1620 1440 t
+(# the second vertex of R1")5 1404 1 1620 1550 t
+(R2: ring6 with .V6 at R1.V2)5 1458 1 1134 1660 t
+(front bond up from R2.V6 ; CH3)6 1620 1 1350 1770 t
+(back bond down from R2.V4 ; H)6 1566 1 1350 1880 t
+(back bond down from R2.V1 ; H)6 1566 1 1350 1990 t
+(front bond up from R2.V2 ; H)6 1512 1 1350 2100 t
+(R3: ring6 with .V4 at R2.V2)5 1458 1 1134 2210 t
+(R4: flatring with .V5 at R3.V2)5 1620 1 1134 2320 t
+(front bond up from R4.V5 ; CH3)6 1620 1 1350 2430 t
+(back bond down from R4.V4 ; H # this is the alkyl chain)12 2970 1 1350 2540 t
+(bond up from R4.V1 ; BP)5 1242 1 1350 2650 t
+(bond -60 from BP)3 864 1 1350 2760 t
+(bond 60 from BP)3 810 1 1350 2870 t
+(bond 120)1 432 1 1350 2980 t
+(bond 60)1 378 1 1350 3090 t
+(bond 120 ; BP)3 702 1 1350 3200 t
+(bond down from BP)3 918 1 1350 3310 t
+(bond 60 from BP)3 810 1 1350 3420 t
+(.cend)1134 3530 w
+10 PA f
+2523 4413 2336 4305 Dl
+2523 4629 2523 4413 Dl
+2336 4737 2523 4629 Dl
+2149 4629 2336 4737 Dl
+2150 4413 2150 4629 Dl
+2337 4305 2150 4413 Dl
+(R1)2278 4541 w
+2149 4629 2034 4716 Dl
+2149 4629 2032 4714 Dl
+2149 4629 2031 4712 Dl
+2149 4629 2029 4710 Dl
+2149 4629 2028 4708 Dl
+2150 4629 2027 4706 Dl
+2149 4629 2025 4703 Dl
+2150 4629 2024 4701 Dl
+2148 4629 2022 4699 Dl
+2149 4629 2021 4697 Dl
+2149 4629 2020 4694 Dl
+2149 4629 2019 4692 Dl
+2149 4629 2018 4690 Dl
+2148 4629 2016 4688 Dl
+2149 4629 2016 4685 Dl
+2026 4701 2150 4629 Dl
+(HO)1870 4772 w
+2898 4413 2711 4305 Dl
+2898 4629 2898 4413 Dl
+2711 4737 2898 4629 Dl
+2524 4629 2711 4737 Dl
+2523 4413 2523 4629 Dl
+2710 4305 2523 4413 Dl
+2523 4413 2505 4269 Dl
+2523 4413 2508 4269 Dl
+2522 4412 2510 4268 Dl
+2523 4412 2513 4268 Dl
+2523 4412 2516 4268 Dl
+2523 4412 2518 4268 Dl
+2523 4412 2521 4267 Dl
+2523 4412 2523 4267 Dl
+2524 4412 2526 4267 Dl
+2523 4412 2528 4268 Dl
+2524 4412 2531 4268 Dl
+2524 4412 2534 4268 Dl
+2524 4412 2536 4268 Dl
+2524 4413 2539 4269 Dl
+2523 4413 2541 4269 Dl
+2523 4269 2523 4413 Dl
+(CH)2494 4242 w
+7 PA f
+(3)2648 4277 w
+10 PA f
+2697 4755 2725 4755 Dl
+2697 4773 2725 4773 Dl
+2697 4791 2725 4791 Dl
+2697 4809 2725 4809 Dl
+2697 4827 2725 4827 Dl
+2697 4845 2725 4845 Dl
+2697 4863 2725 4863 Dl
+(H)2670 4969 w
+2697 4323 2725 4323 Dl
+2697 4341 2725 4341 Dl
+2697 4359 2725 4359 Dl
+2697 4377 2725 4377 Dl
+2697 4395 2725 4395 Dl
+2697 4413 2725 4413 Dl
+2697 4431 2725 4431 Dl
+(H)2670 4537 w
+2898 4413 2880 4269 Dl
+2897 4413 2882 4269 Dl
+2897 4412 2885 4268 Dl
+2898 4412 2888 4268 Dl
+2897 4412 2890 4268 Dl
+2898 4412 2893 4268 Dl
+2897 4412 2895 4267 Dl
+2898 4412 2898 4267 Dl
+2898 4412 2900 4267 Dl
+2898 4412 2903 4268 Dl
+2899 4412 2906 4268 Dl
+2898 4412 2908 4268 Dl
+2899 4412 2911 4268 Dl
+2898 4413 2913 4269 Dl
+2898 4413 2916 4269 Dl
+2898 4269 2898 4413 Dl
+(H)2857 4242 w
+3085 4089 2898 3981 Dl
+3085 4305 3085 4089 Dl
+2898 4413 3085 4305 Dl
+2711 4305 2898 4413 Dl
+2711 4089 2711 4305 Dl
+2898 3981 2711 4089 Dl
+3458 4089 3271 3981 Dl
+3459 4305 3459 4089 Dl
+3085 4305 3459 4305 Dl
+3085 4089 3085 4305 Dl
+3272 3981 3085 4089 Dl
+3085 4089 3067 3945 Dl
+3084 4089 3069 3945 Dl
+3084 4088 3072 3944 Dl
+3084 4088 3074 3944 Dl
+3084 4088 3077 3944 Dl
+3085 4088 3080 3944 Dl
+3084 4088 3082 3943 Dl
+3085 4088 3085 3943 Dl
+3085 4088 3087 3943 Dl
+3085 4088 3090 3944 Dl
+3085 4088 3092 3944 Dl
+3085 4088 3095 3944 Dl
+3086 4088 3098 3944 Dl
+3085 4089 3100 3945 Dl
+3085 4089 3103 3945 Dl
+3085 3945 3085 4089 Dl
+(CH)3056 3918 w
+7 PA f
+(3)3210 3953 w
+10 PA f
+3071 4323 3099 4323 Dl
+3071 4341 3099 4341 Dl
+3071 4359 3099 4359 Dl
+3071 4377 3099 4377 Dl
+3071 4395 3099 4395 Dl
+3071 4413 3099 4413 Dl
+3071 4431 3099 4431 Dl
+(H)3044 4537 w
+3271 3837 3271 3981 Dl
+3147 3765 3271 3837 Dl
+3395 3765 3271 3837 Dl
+3521 3837 3397 3765 Dl
+3645 3765 3521 3837 Dl
+3770 3837 3646 3765 Dl
+3770 3981 3770 3837 Dl
+3894 3765 3770 3837 Dl
+( that the fusion of)4 782( Note)1 270( rings fuse together.)3 882(The next example shows how the different sized)7 2136 4 970 5246 t
+(the \256ve- and six-membered rings requires an unusual angle:)8 2659 1 720 5376 t
+9 CW f
+(.cstart)1134 5546 w
+(R3: ring3)1 486 1 1134 5656 t
+(R4: ring4 pointing 45 with .V1 at R3.V2)7 2106 1 1134 5766 t
+(R5: ring5 pointing down with .V4 at R4.V2)7 2214 1 1134 5876 t
+(R6: ring6 pointing 54 with .V6 at R5.V5)7 2106 1 1134 5986 t
+(# the following lines specify the labels inside the rings)9 3078 1 1350 6096 t
+("3" at R3)2 486 1 1350 6206 t
+("4" at R4)2 486 1 1350 6316 t
+("5" at R5)2 486 1 1350 6426 t
+("6" at R6)2 486 1 1350 6536 t
+(.cend)1134 6646 w
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 11 13
+%%Page: 12 14
+/saveobj save def
+mark
+14 pagesetup
+10 PA f
+(- 12 -)2 216 1 2772 480 t
+2877 1037 2769 850 Dl
+2661 1037 2877 1037 Dl
+2769 850 2661 1037 Dl
+2877 1253 2877 1037 Dl
+2661 1253 2877 1253 Dl
+2661 1037 2661 1253 Dl
+2877 1037 2661 1037 Dl
+2595 1459 2769 1585 Dl
+2661 1253 2595 1458 Dl
+2877 1253 2661 1253 Dl
+2943 1458 2877 1253 Dl
+2770 1584 2944 1458 Dl
+3163 1760 3141 1546 Dl
+2990 1887 3164 1761 Dl
+2792 1801 2989 1888 Dl
+2770 1586 2792 1800 Dl
+2943 1459 2769 1585 Dl
+3141 1545 2944 1458 Dl
+(3)2744 963 w
+(4)2744 1165 w
+(5)2744 1439 w
+(6)2942 1692 w
+(Spiro ring junctions are formed in an analogous way:)8 2349 1 720 2102 t
+9 CW f
+(.cstart)1134 2272 w
+(R1: ring6)1 540 1 1350 2382 t
+( with .V1 at R1.V4)4 972(R2: ring6)1 540 2 1350 2492 t
+( with .V5 at R2.V3)4 972(R3: ring5)1 540 2 1350 2602 t
+(back bond 60 from R3.V2 ; OH)6 1512 1 1620 2712 t
+(front bond 150 from R3.V3 ; OH)6 1620 1 1620 2822 t
+(.cend)1134 2932 w
+10 PA f
+2750 3275 2563 3167 Dl
+2750 3491 2750 3275 Dl
+2563 3599 2750 3491 Dl
+2376 3491 2563 3599 Dl
+2376 3275 2376 3491 Dl
+2563 3167 2376 3275 Dl
+2750 3707 2563 3599 Dl
+2750 3923 2750 3707 Dl
+2563 4031 2750 3923 Dl
+2376 3923 2563 4031 Dl
+2376 3707 2376 3923 Dl
+2563 3599 2376 3707 Dl
+3098 3922 2924 3796 Dl
+3033 4128 3099 3923 Dl
+2816 4128 3032 4128 Dl
+2750 3923 2816 4128 Dl
+2924 3797 2750 3923 Dl
+3122 3926 3108 3901 Dl
+3137 3917 3123 3892 Dl
+3153 3908 3139 3883 Dl
+3169 3899 3155 3874 Dl
+3184 3890 3170 3865 Dl
+3200 3881 3186 3856 Dl
+3215 3872 3201 3847 Dl
+(OH)3217 3840 w
+3033 4129 3120 4244 Dl
+3033 4128 3118 4245 Dl
+3033 4129 3116 4247 Dl
+3033 4128 3114 4248 Dl
+3032 4128 3111 4249 Dl
+3032 4128 3109 4251 Dl
+3033 4128 3107 4252 Dl
+3033 4128 3105 4254 Dl
+3033 4129 3103 4255 Dl
+3033 4128 3101 4256 Dl
+3033 4128 3098 4257 Dl
+3033 4129 3096 4259 Dl
+3032 4128 3093 4259 Dl
+3032 4129 3091 4261 Dl
+3033 4129 3089 4262 Dl
+3104 4252 3032 4128 Dl
+(OH)3097 4324 w
+10 PI f
+(Heteroatoms)970 4601 w
+10 PA f
+(in rings are written as ``)5 1077 1 1511 4601 t
+10 CW f
+(put)2588 4601 w
+10 PI f
+(X)2799 4601 w
+10 CW f
+(at)2910 4601 w
+10 PI f
+(V)3061 4601 w
+10 PA f
+(,'' where)1 389 1 3141 4601 t
+10 PI f
+(X)3561 4601 w
+10 PA f
+( heteroatom and)2 741(is the)1 241 2 3672 4601 t
+10 PI f
+(V)4686 4601 w
+10 PA f
+(is the)1 242 1 4798 4601 t
+( example:)1 425( For)1 201(vertex number.)1 676 3 720 4731 t
+9 CW f
+(.cstart)1134 4901 w
+(ring put N at 2 put S at 4 double 2,3 4,5 6,1)12 2430 1 1350 5011 t
+(.cend)1134 5121 w
+10 PA f
+2995 5435 2858 5356 Dl
+(N)3004 5494 w
+3045 5679 3045 5521 Dl
+3017 5663 3017 5518 Dl
+2908 5759 3045 5680 Dl
+(S)2832 5818 w
+2671 5680 2808 5759 Dl
+2699 5664 2825 5736 Dl
+2671 5464 2671 5680 Dl
+2858 5356 2671 5464 Dl
+2858 5387 2699 5479 Dl
+( compound is produced with the following)6 1936(As a more complex example, this polycyclic aromatic)7 2384 2 720 6059 t
+(input:)720 6189 w
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 12 14
+%%Page: 13 15
+/saveobj save def
+mark
+15 pagesetup
+10 PA f
+(- 13 -)2 216 1 2772 480 t
+9 CW f
+(.cstart)1134 890 w
+(R1: benzene pointing right)3 1404 1 1134 1000 t
+(bond 30 from R1.V6 ; Br)5 1242 1 1350 1110 t
+(R2: benzene pointing right with .V5 at R1.V1)7 2376 1 1134 1220 t
+(R3: benzene pointing right with .V1 at R2.V3)7 2376 1 1134 1330 t
+(bond 150 from R3.V2 ; CO2H)5 1404 1 1350 1440 t
+(R4: benzene pointing right with .V1 at R1.V3)7 2376 1 1134 1550 t
+(# next line names bond B1 so we can refer to its end)12 2808 1 1134 1660 t
+(B1: bond left from R4.V4)4 1296 1 1134 1770 t
+(ring6 put N at 4 double 2,3 4,5 6,1 with .V3 at B1.end)12 2916 1 1350 1880 t
+(R5: benzene with .V5 at B2.end)5 1620 1 1134 1990 t
+(ring6 put N at 4 double 1,2 3,4 with .V5 at R5.V3)11 2646 1 1350 2100 t
+(.cend)1134 2210 w
+10 PA f
+2801 3042 2909 2855 Dl
+2585 3041 2801 3041 Dl
+2477 2854 2585 3041 Dl
+2585 2668 2477 2855 Dl
+2801 2668 2585 2668 Dl
+2909 2855 2801 2668 Dl
+2585 2855 216 216 De
+2873 2544 2801 2668 Dl
+(Br)2875 2533 w
+3125 3228 3233 3041 Dl
+2909 3229 3125 3229 Dl
+2801 3042 2909 3229 Dl
+2909 2854 2801 3041 Dl
+3125 2855 2909 2855 Dl
+3233 3042 3125 2855 Dl
+2909 3041 216 216 De
+2801 3416 2909 3229 Dl
+2585 3416 2801 3416 Dl
+2477 3229 2585 3416 Dl
+2585 3042 2477 3229 Dl
+2801 3041 2585 3041 Dl
+2909 3228 2801 3041 Dl
+2585 3229 216 216 De
+2873 3540 2801 3416 Dl
+(CO)2877 3612 w
+7 PA f
+(2)3027 3647 w
+10 PA f
+(H)3062 3612 w
+2477 3228 2585 3041 Dl
+2261 3229 2477 3229 Dl
+2153 3042 2261 3229 Dl
+2261 2854 2153 3041 Dl
+2477 2855 2261 2855 Dl
+2585 3042 2477 2855 Dl
+2261 3041 216 216 De
+2009 3041 2153 3041 Dl
+2009 2825 1822 2717 Dl
+2009 3041 2009 2825 Dl
+1981 3025 1981 2842 Dl
+1872 3120 2009 3041 Dl
+(N)1781 3180 w
+1635 3042 1772 3121 Dl
+1663 3026 1789 3098 Dl
+1635 2825 1635 3041 Dl
+1822 2717 1635 2825 Dl
+1822 2750 1663 2842 Dl
+3377 3041 3233 3041 Dl
+3750 2825 3563 2717 Dl
+3751 3041 3751 2825 Dl
+3564 3149 3751 3041 Dl
+3376 3041 3563 3149 Dl
+3377 2825 3377 3041 Dl
+3564 2717 3377 2825 Dl
+3455 2933 216 216 De
+4125 2825 3938 2717 Dl
+4097 2842 3938 2750 Dl
+4125 3041 4125 2825 Dl
+3988 3120 4125 3041 Dl
+3971 3098 4097 3026 Dl
+(N)3897 3180 w
+3751 3042 3888 3121 Dl
+3751 2825 3751 3041 Dl
+3938 2717 3751 2825 Dl
+(Quite arbitrarily, we started with the bromo-substituted ring but, as is usual in)12 3606 1 720 3853 t
+10 PI f
+(chem)4362 3853 w
+10 PA f
+(, there are)2 462 1 4578 3853 t
+(many other equally good ways to draw this structure.)8 2381 1 720 3983 t
+( The)1 232( heteroatoms just as they are placed on non-heterocycles.)8 2632(Substituents are placed on)3 1206 3 970 4149 t
+(nicotine molecule provides an example of bond positioning:)7 2650 1 720 4279 t
+9 CW f
+(.cstart)1134 4449 w
+(benzene put N at 4)4 972 1 1350 4559 t
+(bond right)1 540 1 1350 4669 t
+(ring5 pointing down put N at 1)6 1620 1 1350 4779 t
+( or .V1)2 378( #)1 432(bond down from .N ; CH3)5 1242 3 1350 4889 t
+(.cend)1134 4999 w
+10 PA f
+2820 5439 2633 5331 Dl
+2820 5655 2820 5439 Dl
+2683 5734 2820 5655 Dl
+(N)2592 5794 w
+2446 5655 2583 5734 Dl
+2446 5439 2446 5655 Dl
+2633 5331 2446 5439 Dl
+2525 5547 216 216 De
+2964 5439 2820 5439 Dl
+(N)3097 5597 w
+2964 5440 3092 5532 Dl
+3030 5234 2964 5439 Dl
+3246 5234 3030 5234 Dl
+3312 5439 3246 5234 Dl
+3185 5531 3313 5439 Dl
+3138 5768 3138 5624 Dl
+(CH)3109 5856 w
+7 PA f
+(3)3263 5891 w
+10 PA f
+( bond refers to)3 670(The second)1 508 2 720 6097 t
+10 CW f
+(.N)1932 6097 w
+10 PA f
+(, which is an alternative name for)6 1526 1 2052 6097 t
+10 CW f
+(.V1)3612 6097 w
+10 PA f
+(.)3792 6097 w
+10 CW f
+(.N)3876 6097 w
+10 PA f
+(is taken to refer to the)5 1010 1 4030 6097 t
+(immediately preceding object, the unnamed)4 1948 1 720 6227 t
+10 CW f
+(ring5)2693 6227 w
+10 PA f
+(.)2993 6227 w
+( or atom in the vicin-)5 941(When drawing heterocyclic rings, it is often useful to position a group)11 3129 2 970 6393 t
+( is done with the commands)5 1266( This)1 244(ity of the heteroatom.)3 965 3 720 6523 t
+10 CW f
+(above)3223 6523 w
+10 PA f
+(,)3523 6523 w
+10 CW f
+(below)3576 6523 w
+10 PA f
+(,)3876 6523 w
+10 CW f
+(right of)1 448 1 3929 6523 t
+10 PA f
+(, and)1 222 1 4377 6523 t
+10 CW f
+(left of)1 388 1 4627 6523 t
+10 PA f
+(,)5015 6523 w
+(as in the NH of the imidazole ring of histidine:)9 2058 1 720 6653 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 13 15
+%%Page: 14 16
+/saveobj save def
+mark
+16 pagesetup
+10 PA f
+(- 14 -)2 216 1 2772 480 t
+9 CW f
+(.cstart)1134 890 w
+(R1: flatring pointing down put N at 2 put N at 5 double 1,2 3,4)14 3402 1 1134 1000 t
+(H right of R1.V5)3 864 1 1350 1110 t
+(bond right from R1.V4 ; CH2)5 1458 1 1350 1220 t
+(bond right ; C)3 756 1 1350 1330 t
+(bond up from C ; H)5 972 1 1350 1440 t
+(bond down from C ; NH2)5 1188 1 1350 1550 t
+(bond right from C ; CO2H)5 1296 1 1350 1660 t
+(.cend)1134 1770 w
+10 PA f
+2246 2566 2383 2645 Dl
+2257 2541 2383 2613 Dl
+(N)2155 2568 w
+2196 2322 2196 2480 Dl
+2570 2321 2196 2321 Dl
+2523 2349 2243 2349 Dl
+2570 2479 2570 2321 Dl
+(N)2529 2568 w
+2383 2645 2520 2566 Dl
+(H)2601 2568 w
+2714 2321 2570 2321 Dl
+(CH)2728 2352 w
+7 PA f
+(2)2882 2387 w
+10 PA f
+3074 2321 2930 2321 Dl
+(C)3082 2352 w
+3117 2120 3117 2264 Dl
+(H)3076 2093 w
+3117 2523 3117 2379 Dl
+(NH)3082 2611 w
+7 PA f
+(2)3248 2646 w
+10 PA f
+3305 2321 3161 2321 Dl
+(CO)3322 2352 w
+7 PA f
+(2)3472 2387 w
+10 PA f
+(H)3507 2352 w
+( shown in the abstract provides another example of)8 2281(The lysergic acid diethylamide structure)4 1789 2 970 2895 t
+(positioning substituents on heteroatoms:)3 1802 1 720 3025 t
+2624 4653 2732 4466 Dl
+2408 4653 2624 4653 Dl
+2300 4466 2408 4653 Dl
+2408 4279 2300 4466 Dl
+2624 4279 2408 4279 Dl
+2732 4466 2624 4279 Dl
+2408 4466 216 216 De
+2732 4466 2624 4653 Dl
+2948 4466 2732 4466 Dl
+2948 4840 2948 4466 Dl
+2921 4793 2921 4513 Dl
+2790 4840 2948 4840 Dl
+(N)2691 4871 w
+2624 4654 2703 4791 Dl
+(H)2691 4986 w
+2948 4466 3056 4279 Dl
+2732 4466 2948 4466 Dl
+2624 4279 2732 4466 Dl
+2732 4092 2624 4279 Dl
+2948 4092 2732 4092 Dl
+3056 4279 2948 4092 Dl
+2948 4092 3092 4074 Dl
+2948 4091 3092 4076 Dl
+2948 4091 3092 4079 Dl
+2948 4092 3092 4082 Dl
+2948 4091 3092 4084 Dl
+2948 4092 3092 4087 Dl
+2948 4091 3093 4089 Dl
+2948 4092 3093 4092 Dl
+2948 4092 3093 4094 Dl
+2948 4092 3092 4097 Dl
+2948 4093 3092 4100 Dl
+2948 4092 3092 4102 Dl
+2948 4093 3092 4105 Dl
+2948 4092 3092 4107 Dl
+2948 4092 3092 4110 Dl
+3092 4092 2948 4092 Dl
+(H)3094 4123 w
+(N)3015 3936 w
+2948 4092 3027 3955 Dl
+2732 4092 2948 4092 Dl
+2624 3905 2732 4092 Dl
+2656 3905 2748 4064 Dl
+2732 3718 2624 3905 Dl
+2948 3718 2732 3718 Dl
+3027 3855 2948 3718 Dl
+3243 3905 3099 3905 Dl
+(CH)3257 3936 w
+7 PA f
+(3)3411 3971 w
+10 PA f
+2722 3697 2708 3722 Dl
+2707 3687 2693 3712 Dl
+2692 3679 2678 3704 Dl
+2676 3669 2662 3694 Dl
+2661 3661 2647 3686 Dl
+2645 3651 2631 3676 Dl
+2629 3643 2615 3668 Dl
+(H)2535 3636 w
+2732 3574 2732 3718 Dl
+(C)2697 3547 w
+2717 3315 2717 3459 Dl
+2746 3315 2746 3459 Dl
+(O)2693 3288 w
+2919 3516 2775 3516 Dl
+(N)2921 3547 w
+3093 3374 2992 3475 Dl
+(C)3099 3364 w
+7 PA f
+(2)3170 3399 w
+10 PA f
+(H)3205 3364 w
+7 PA f
+(5)3288 3399 w
+10 PA f
+3093 3658 2992 3557 Dl
+(C)3099 3731 w
+7 PA f
+(2)3170 3766 w
+10 PA f
+(H)3205 3731 w
+7 PA f
+(5)3288 3766 w
+9 CW f
+(.cstart)1134 5267 w
+( pointing right)2 810(B: benzene)1 594 2 1134 5377 t
+( pointing left put N at 5 double 3,4 with .V1 at B.V2)12 2862(F: flatring)1 648 2 1134 5487 t
+(H below F.N)2 594 1 1350 5597 t
+( pointing right with .V4 at B.V6)6 1728(R: ring)1 432 2 1134 5707 t
+(front bond right from R.V6 ; H)6 1620 1 1350 5817 t
+( pointing right with .V2 at R.V6 put N at 1 double 3,4)12 2916(W: ring)1 432 2 1134 5927 t
+(bond right from W.N ; CH3)5 1350 1 1350 6037 t
+(back bond -60 from W.V5 ; H)6 1458 1 1350 6147 t
+(bond up from W.V5 ; C)5 1134 1 1350 6257 t
+(double bond up from C ; O)6 1350 1 1350 6367 t
+(bond right from C ; N)5 1134 1 1350 6477 t
+(bond 45 from N ; C2H5)5 1134 1 1350 6587 t
+(bond 135 from N ; C2H5)5 1188 1 1350 6697 t
+(.cend)1134 6807 w
+10 PA f
+(We mentioned before that)3 1181 1 720 6997 t
+10 PI f
+(chem)1935 6997 w
+10 PA f
+( to the proper parts of moieties, con-)7 1675(attempts to connect bonds)3 1188 2 2177 6997 t
+( effect, as)2 410( in a while this may provide an unwanted)8 1872( Once)1 282(necting to carbon atoms when possible.)5 1756 4 720 7127 t
+( CH)1 186( The)1 224( the left diagram of anisole.)5 1240(shown in)1 414 4 720 7257 t
+7 PA f
+(3)2795 7277 w
+10 PA f
+(can be manually positioned by using)5 1661 1 2870 7257 t
+10 CW f
+(right of)1 452 1 4563 7257 t
+10 PA f
+(,)5015 7257 w
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 14 16
+%%Page: 15 17
+/saveobj save def
+mark
+17 pagesetup
+10 PA f
+(- 15 -)2 216 1 2772 480 t
+(as shown in the diagram on the right.)7 1656 1 720 850 t
+9 CW f
+(.cstart)1134 1020 w
+(R1: benzene)1 594 1 1134 1130 t
+(bond down from R1.V4 ; OCH3)5 1458 1 1350 1240 t
+(R2: benzene at R1 + \(1.5,0\))5 1458 1 1134 1350 t
+(bond down from R2.V4 ; O)5 1296 1 1350 1460 t
+(CH3 right of O)3 756 1 1350 1570 t
+(.cend)1134 1680 w
+10 PA f
+2498 2023 2311 1915 Dl
+2498 2239 2498 2023 Dl
+2311 2347 2498 2239 Dl
+2124 2239 2311 2347 Dl
+2124 2023 2124 2239 Dl
+2311 1915 2124 2023 Dl
+2203 2131 216 216 De
+2311 2491 2311 2347 Dl
+(OCH)2198 2579 w
+7 PA f
+(3)2431 2614 w
+10 PA f
+3578 2023 3391 1915 Dl
+3578 2239 3578 2023 Dl
+3391 2347 3578 2239 Dl
+3204 2239 3391 2347 Dl
+3204 2023 3204 2239 Dl
+3391 1915 3204 2023 Dl
+3283 2131 216 216 De
+3391 2491 3391 2347 Dl
+(O CH)1 236 1 3352 2579 t
+7 PA f
+(3)3588 2614 w
+10 PA f
+(The following diagram of reserpine shows that)6 2097 1 720 2820 t
+10 PI f
+(chem)2847 2820 w
+10 PA f
+(gets the connectivity right most of the time;)7 1955 1 3085 2820 t
+(it is only when the OCH)5 1075 1 720 2950 t
+7 PA f
+(3)1806 2970 w
+10 PA f
+(is connected to a)3 733 1 1874 2950 t
+10 CW f
+(bond up)1 385 1 2632 2950 t
+10 PA f
+(or a)1 170 1 3042 2950 t
+10 CW f
+(bond down)1 505 1 3237 2950 t
+10 PA f
+(that there is a problem.)4 1022 1 3767 2950 t
+9 CW f
+(.cstart)1134 3120 w
+(CH3O)1350 3230 w
+(bond 60)1 378 1 1350 3340 t
+(R1: benzene)1 594 1 1134 3450 t
+(R2: aromatic flatring5 pointing down put N at 1 with .V3 at R1.V2)12 3510 1 1134 3560 t
+(H below R2.V1)2 702 1 1350 3670 t
+(R3: ring put N at 3 with .V5 at R2.V5)9 1998 1 1134 3780 t
+(R4: ring put N at 1 with .V1 at R3.V3)9 1998 1 1134 3890 t
+(back bond -120 from R4.V4 ; H)6 1566 1 1350 4000 t
+(back bond 60 from R4.V3 ; H)6 1458 1 1350 4110 t
+(R5: ring with .V1 at R4.V3)5 1404 1 1134 4220 t
+(bond -120 ; C)3 702 1 1350 4330 t
+(double bond down from C ; O)6 1458 1 1350 4440 t
+(CH3O left of C)3 756 1 1350 4550 t
+(back bond 60 from R5.V3 ; H)6 1458 1 1350 4660 t
+(back bond down from R5.V4 ; O)6 1566 1 1350 4770 t
+(CH3 right of O)3 756 1 1350 4880 t
+(bond 120 from R5.V3 ; O)5 1242 1 1350 4990 t
+(bond right lenght .1 from O ; C)7 1674 1 1350 5100 t
+(double bond down ; O)4 1080 1 1350 5210 t
+(bond right length .1 from C)5 1458 1 1350 5320 t
+( pointing right)2 810(B: benzene)1 594 2 1134 5430 t
+(bond 30 from B ; OCH3)5 1134 1 1350 5540 t
+(bond right from B ; OCH3)5 1296 1 1350 5650 t
+(bond 150 from B ; OCH3)5 1188 1 1350 5760 t
+(.cend)1134 5870 w
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 15 17
+%%Page: 16 18
+/saveobj save def
+mark
+18 pagesetup
+10 PA f
+(- 16 -)2 216 1 2772 480 t
+(CH)1288 1317 w
+7 PA f
+(3)1442 1352 w
+10 PA f
+(O)1477 1317 w
+1684 1174 1560 1246 Dl
+2059 958 1872 850 Dl
+2059 1174 2059 958 Dl
+1872 1282 2059 1174 Dl
+1685 1174 1872 1282 Dl
+1685 958 1685 1174 Dl
+1872 850 1685 958 Dl
+1764 1066 216 216 De
+(N)2205 1312 w
+2059 1174 2196 1253 Dl
+2059 958 2059 1174 Dl
+2433 958 2059 958 Dl
+2433 1174 2433 958 Dl
+2296 1253 2433 1174 Dl
+2160 1066 172 172 De
+(H)2205 1428 w
+2808 958 2621 850 Dl
+2807 1116 2807 958 Dl
+(N)2766 1204 w
+2620 1281 2757 1202 Dl
+2434 1174 2621 1282 Dl
+2433 958 2433 1174 Dl
+2620 850 2433 958 Dl
+(N)2766 1204 w
+2994 1281 2857 1202 Dl
+2994 1498 2994 1282 Dl
+2807 1606 2994 1498 Dl
+2620 1498 2807 1606 Dl
+2621 1282 2621 1498 Dl
+2758 1203 2621 1282 Dl
+2785 1602 2799 1627 Dl
+2769 1611 2783 1636 Dl
+2754 1620 2768 1645 Dl
+2738 1629 2752 1654 Dl
+2722 1638 2736 1663 Dl
+2707 1647 2721 1672 Dl
+2691 1656 2705 1681 Dl
+(H)2611 1749 w
+3017 1501 3003 1476 Dl
+3033 1492 3019 1467 Dl
+3048 1483 3034 1458 Dl
+3064 1474 3050 1449 Dl
+3079 1465 3065 1440 Dl
+3095 1456 3081 1431 Dl
+3110 1447 3096 1422 Dl
+(H)3109 1415 w
+3181 1606 2994 1498 Dl
+3181 1822 3181 1606 Dl
+2994 1930 3181 1822 Dl
+2807 1822 2994 1930 Dl
+2807 1606 2807 1822 Dl
+2994 1498 2807 1606 Dl
+2683 1894 2807 1822 Dl
+(C)2617 1965 w
+2667 2136 2667 1992 Dl
+2638 2136 2638 1992 Dl
+(O)2613 2225 w
+(CH)2338 1965 w
+7 PA f
+(3)2492 2000 w
+10 PA f
+(O)2527 1965 w
+3204 1825 3190 1800 Dl
+3219 1816 3205 1791 Dl
+3235 1807 3221 1782 Dl
+3251 1798 3237 1773 Dl
+3266 1789 3252 1764 Dl
+3282 1780 3268 1755 Dl
+3298 1771 3284 1746 Dl
+(H)3296 1739 w
+2981 1948 3009 1948 Dl
+2981 1966 3009 1966 Dl
+2981 1984 3009 1984 Dl
+2981 2002 3009 2002 Dl
+2981 2020 3009 2020 Dl
+2981 2038 3009 2038 Dl
+2981 2056 3009 2056 Dl
+(O CH)1 236 1 2955 2162 t
+7 PA f
+(3)3191 2197 w
+10 PA f
+3305 1894 3181 1822 Dl
+(O)3298 1965 w
+3452 1935 3380 1935 Dl
+(C)3460 1965 w
+3510 2136 3510 1992 Dl
+3481 2136 3481 1992 Dl
+(O)3456 2225 w
+3611 1935 3539 1935 Dl
+3935 2122 4043 1935 Dl
+3719 2121 3935 2121 Dl
+3611 1934 3719 2121 Dl
+3719 1748 3611 1935 Dl
+3935 1747 3719 1747 Dl
+4043 1934 3935 1747 Dl
+3719 1935 216 216 De
+4007 1623 3935 1747 Dl
+(OCH)4011 1613 w
+7 PA f
+(3)4244 1648 w
+10 PA f
+4187 1935 4043 1935 Dl
+(OCH)4204 1965 w
+7 PA f
+(3)4437 2000 w
+10 PA f
+4007 2245 3935 2121 Dl
+(OCH)4011 2317 w
+7 PA f
+(3)4244 2352 w
+10 PB f
+(Brackets and Text)2 810 1 720 2688 t
+10 PA f
+( The)1 227( somewhat awkward fashion.)3 1335(It is possible to make brackets of any size but only in a)12 2508 3 970 2854 t
+( is poly\(benzyl glutamic acid\), which was also shown)8 2446( This)1 252( use the branch point, BP.)5 1185(trick is to)2 437 4 720 2984 t
+(near the beginning of this manual:)5 1517 1 720 3114 t
+2276 4277 2204 4277 Dl
+2276 4061 2276 4277 Dl
+2348 4061 2276 4061 Dl
+2276 4493 2276 4277 Dl
+2348 4493 2276 4493 Dl
+2348 4277 2276 4277 Dl
+(NH)2351 4308 w
+2664 4277 2520 4277 Dl
+(CH)2674 4308 w
+10 S f
+(a)2720 4412 w
+2981 4277 2837 4277 Dl
+10 PA f
+(C)2989 4308 w
+3010 4075 3010 4219 Dl
+3039 4075 3039 4219 Dl
+(O)2985 4049 w
+3140 4277 3068 4277 Dl
+3140 4061 3140 4277 Dl
+3068 4061 3140 4061 Dl
+3212 4277 3140 4277 Dl
+3140 4493 3140 4277 Dl
+3068 4493 3140 4493 Dl
+10 PI f
+(n)3148 4513 w
+2708 4075 2708 4219 Dl
+10 PA f
+(CH)2678 4049 w
+7 PA f
+(2)2832 4084 w
+10 S f
+(b)2601 4038 w
+2708 3816 2708 3960 Dl
+10 PA f
+(CH)2678 3789 w
+7 PA f
+(2)2832 3824 w
+10 S f
+(g)2608 3779 w
+2708 3557 2708 3701 Dl
+10 PA f
+(C)2673 3530 w
+2546 3399 2670 3471 Dl
+2560 3374 2684 3446 Dl
+(O)2483 3377 w
+2862 3387 2738 3459 Dl
+(O)2854 3377 w
+3080 3346 2936 3346 Dl
+(CH)3112 3377 w
+7 PA f
+(2)3266 3412 w
+10 PA f
+(C)3301 3377 w
+7 PA f
+(6)3372 3412 w
+10 PA f
+(H)3407 3377 w
+7 PA f
+(5)3490 3412 w
+10 PA f
+( in double quotes is treated as text and is passed through)11 2839(Anything that is enclosed)3 1218 2 720 4765 t
+10 PI f
+(chem)4832 4765 w
+10 PA f
+( particular, text intended for)4 1250(untouched. In)1 644 2 720 4895 t
+10 PI f
+(eqn)2639 4895 w
+10 PA f
+(is handled this way.)3 887 1 2813 4895 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 16 18
+%%Page: 17 19
+/saveobj save def
+mark
+19 pagesetup
+10 PA f
+(- 17 -)2 216 1 2772 480 t
+9 CW f
+(.cstart)1134 890 w
+(# a left bracket)3 864 1 1134 1000 t
+(bond right length .1 ; BP)5 1350 1 1350 1110 t
+(bond up length .3)3 918 1 1350 1220 t
+(bond right length .1)3 1080 1 1350 1330 t
+(bond down length .3 from BP)5 1458 1 1350 1440 t
+(bond right length .1)3 1080 1 1350 1550 t
+(# this is the mainchain amide structure)6 2106 1 1134 1660 t
+(bond right length .1 from BP ; NH)7 1782 1 1350 1770 t
+(bond right ; CH)3 810 1 1350 1880 t
+(# label the CH with an alpha, intended for eqn.)9 2538 1 1134 1990 t
+(# this line says "put the north edge of the alpha at the)12 3024 1 1134 2100 t
+(# south edge of the CH")5 1242 1 1134 2210 t
+("$alpha$" with .n at CH.s)4 1350 1 1350 2320 t
+(bond right from CH ; C)5 1188 1 1350 2430 t
+(double bond up from C ; O)6 1350 1 1350 2540 t
+(bond right length .1 from C ; BP)7 1728 1 1350 2650 t
+(# a right bracket)3 918 1 1134 2760 t
+(bond up length .3)3 918 1 1350 2870 t
+(bond left length .1)3 1026 1 1350 2980 t
+(bond right length .1 from BP)5 1512 1 1350 3090 t
+(bond down length .3 from BP ; BP)7 1728 1 1350 3200 t
+(bond left length .1)3 1026 1 1350 3310 t
+(# label the degree of polymerization)5 1944 1 1134 3540 t
+("$n$" with .w at BP.se)4 1188 1 1350 3650 t
+(# this is the sidechain)4 1242 1 1134 3760 t
+(bond up from CH ; CH2)5 1134 1 1350 3870 t
+("$beta$" with .e at CH2.w)4 1350 1 1350 3980 t
+(bond up from CH2 ; CH2)5 1188 1 1350 4090 t
+("$gamma$" with .e at CH2.w)4 1404 1 1350 4200 t
+(bond up from CH2 ; C)5 1080 1 1350 4310 t
+(# this is the benzyl ester part)6 1674 1 1134 4420 t
+(double bond -60 from C ; O)6 1404 1 1350 4530 t
+(bond 60 from C ; O)5 972 1 1350 4640 t
+(bond right ; CH2C6H5)3 1080 1 1350 4750 t
+(.cend)1134 4860 w
+10 PA f
+(Text can be positioned with various)5 1619 1 720 5050 t
+10 PI f
+(pic)2372 5050 w
+10 PA f
+( shown in the Greek letters above, and in)8 1880(commands, as)1 636 2 2524 5050 t
+(this example:)1 587 1 720 5180 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 17 19
+%%Page: 18 20
+/saveobj save def
+mark
+20 pagesetup
+10 PA f
+(- 18 -)2 216 1 2772 480 t
+9 CW f
+(.cstart)1134 890 w
+(bond 120 dotted)2 810 1 1350 1000 t
+(bond 120 length .3 ; BP)5 1242 1 1350 1110 t
+(back bond -120 length .25 from BP ; H)8 1998 1 1350 1220 t
+(front bond 120 length .25 from BP ; CH3)8 2106 1 1350 1330 t
+(bond 60 length .5 from BP ; BP)7 1620 1 1350 1440 t
+(bond -60 length .25 from BP ; H)7 1674 1 1350 1550 t
+(# note the pic move command to position the text)9 2592 1 1134 1660 t
+(move left .35 ; "\(ANTI\)")4 1296 1 1350 1770 t
+(front bond 60 length .25 from BP ; H)8 1944 1 1350 1880 t
+(# another positioning of text)4 1566 1 1134 1990 t
+(move right .35 ; "\(SYN\)")4 1296 1 1350 2100 t
+(bond 120 length .4 from BP ; BP)7 1674 1 1350 2210 t
+(back bond -120 length .25 from BP ; H)8 1998 1 1350 2320 t
+(front bond 120 length .25 from BP ; CH3)8 2106 1 1350 2430 t
+(bond 60 length .5 from BP)5 1350 1 1350 2540 t
+(bond 60 dotted)2 756 1 1350 2650 t
+(.cend)1134 2760 w
+7 PA f
+(.)2215 3186 w
+(.)2245 3204 w
+(.)2277 3222 w
+(.)2308 3240 w
+(.)2339 3258 w
+10 PA f
+2536 3363 2349 3255 Dl
+2514 3359 2528 3384 Dl
+2499 3368 2513 3393 Dl
+2483 3377 2497 3402 Dl
+2467 3386 2481 3411 Dl
+2452 3395 2466 3420 Dl
+2436 3404 2450 3429 Dl
+2420 3413 2434 3438 Dl
+2405 3422 2419 3447 Dl
+2389 3431 2403 3456 Dl
+(H)2309 3524 w
+2537 3363 2701 3437 Dl
+2536 3362 2700 3439 Dl
+2537 3363 2699 3442 Dl
+2537 3364 2698 3445 Dl
+2537 3364 2697 3447 Dl
+2536 3364 2695 3449 Dl
+2537 3363 2694 3451 Dl
+2537 3363 2693 3453 Dl
+2537 3363 2692 3455 Dl
+2536 3362 2690 3457 Dl
+2537 3363 2689 3460 Dl
+2536 3363 2687 3462 Dl
+2537 3363 2686 3464 Dl
+2537 3363 2685 3466 Dl
+2537 3363 2683 3468 Dl
+2692 3453 2536 3363 Dl
+(CH)2694 3524 w
+7 PA f
+(3)2848 3559 w
+10 PA f
+2847 3183 2536 3363 Dl
+2692 3093 2848 3183 Dl
+(H)2621 3083 w
+(\(ANTI\))2256 3072 w
+2849 3182 2995 3077 Dl
+2848 3182 2996 3079 Dl
+2849 3183 2998 3082 Dl
+2848 3183 2999 3084 Dl
+2849 3183 3001 3086 Dl
+2848 3183 3002 3088 Dl
+2849 3182 3004 3090 Dl
+2849 3182 3005 3092 Dl
+2849 3183 3006 3095 Dl
+2848 3182 3007 3097 Dl
+2849 3182 3009 3099 Dl
+2848 3183 3009 3102 Dl
+2849 3183 3011 3104 Dl
+2848 3183 3012 3106 Dl
+2849 3182 3013 3108 Dl
+3004 3093 2848 3183 Dl
+(H)2994 3083 w
+(\(SYN\))3145 3072 w
+3097 3327 2848 3183 Dl
+3075 3323 3089 3348 Dl
+3059 3332 3073 3357 Dl
+3044 3341 3058 3366 Dl
+3028 3350 3042 3375 Dl
+3013 3359 3027 3384 Dl
+2997 3368 3011 3393 Dl
+2982 3377 2996 3402 Dl
+2966 3386 2980 3411 Dl
+2951 3395 2965 3420 Dl
+(H)2870 3488 w
+3098 3327 3262 3401 Dl
+3097 3326 3261 3403 Dl
+3098 3327 3260 3406 Dl
+3098 3328 3259 3409 Dl
+3098 3328 3258 3411 Dl
+3098 3328 3257 3413 Dl
+3099 3327 3256 3415 Dl
+3098 3327 3254 3417 Dl
+3098 3327 3253 3419 Dl
+3097 3326 3251 3421 Dl
+3098 3327 3250 3424 Dl
+3098 3327 3249 3426 Dl
+3099 3327 3248 3428 Dl
+3098 3327 3246 3430 Dl
+3098 3327 3244 3432 Dl
+3253 3417 3097 3327 Dl
+(CH)3254 3488 w
+7 PA f
+(3)3408 3523 w
+10 PA f
+3408 3147 3097 3327 Dl
+7 PA f
+(.)3399 3150 w
+(.)3431 3132 w
+(.)3462 3114 w
+(.)3493 3096 w
+(.)3524 3078 w
+10 PB f
+( the Size of Structures)4 998(5. Changing)1 575 2 720 3895 t
+10 PA f
+(The default point size for)4 1169 1 970 4061 t
+10 PI f
+(chem)2178 4061 w
+10 PA f
+( size of bonds,)3 673( The)1 232( 10.)1 165(is 10; this paper is printed in size)7 1545 4 2425 4061 t
+(rings, etc., can be adjusted within the)6 1649 1 720 4191 t
+10 CW f
+(.cstart)2396 4191 w
+10 PA f
+(and)2843 4191 w
+10 CW f
+(.cend)3039 4191 w
+10 PA f
+(pair by specifying)2 799 1 3366 4191 t
+10 CW f
+(size)4192 4191 w
+10 PI f
+(n)4459 4191 w
+10 PA f
+(, where)1 329 1 4523 4191 t
+10 PI f
+(n)4879 4191 w
+10 PA f
+(is)4969 4191 w
+( text size itself is)4 748( The)1 224(the desired point size.)3 993 3 720 4321 t
+10 PI f
+(not)2717 4321 w
+10 PA f
+( you must do that separately)5 1305(changed, however;)1 845 2 2890 4321 t
+(with)720 4451 w
+10 PI f
+(troff)952 4451 w
+10 CW f
+(.ps)1161 4451 w
+10 PA f
+( following example shows how)4 1390(commands. The)1 732 2 1370 4451 t
+10 PI f
+(chem)3520 4451 w
+10 PA f
+(could be used to make a dia-)6 1284 1 3756 4451 t
+(gram that is suitable for a viewgraph.)6 1658 1 720 4581 t
+9 CW f
+(.cstart)1134 4751 w
+(.ps 14)1 324 1 1134 4861 t
+(size 16)1 378 1 1134 4971 t
+(R: ring6 put O at 1 put C at 2 put O at 3 put C at 4 put O at 5 put C at 6)25 3996 1 1134 5081 t
+(double bond 60 from R.V2 ; NH)6 1566 1 1296 5191 t
+(double bond down from R.V4 ; NH)6 1674 1 1296 5301 t
+(double bond -60 from R.V6 ; HN)6 1620 1 1296 5411 t
+( if you are doing more than one)7 1674( #)1 162(size 10)1 378 3 1134 5521 t
+(.ps 10)1 324 1 1134 5631 t
+(.cend)1134 5741 w
+10 PA f
+(Don't forget that the)3 907 1 720 5931 t
+10 CW f
+(.ps)1654 5931 w
+10 PA f
+(must begin in the \256rst column, and that you need to reset the point size)14 3179 1 1861 5931 t
+(after the structure has been drawn.)5 1544 1 720 6061 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 18 20
+%%Page: 19 21
+/saveobj save def
+mark
+21 pagesetup
+10 PA f
+(- 19 -)2 216 1 2772 480 t
+14 PA f
+(O)2825 1060 w
+3098 1140 2959 1060 Dl
+(C)3129 1232 w
+3178 1440 3178 1279 Dl
+(O)3123 1578 w
+2959 1659 3098 1579 Dl
+(C)2831 1751 w
+2661 1580 2800 1660 Dl
+(O)2525 1578 w
+2580 1280 2580 1441 Dl
+(C)2531 1232 w
+2799 1061 2660 1141 Dl
+3419 994 3220 1109 Dl
+3434 1020 3235 1135 Dl
+(NH)3455 987 w
+2894 2028 2894 1798 Dl
+2865 2028 2865 1798 Dl
+(NH)2833 2166 w
+2325 1020 2524 1135 Dl
+2339 994 2538 1109 Dl
+(HN)2072 987 w
+10 PB f
+( with Pic)2 398(6. Communicating)1 863 2 720 2556 t
+10 PA f
+( Since)1 287( be skipped on a \256rst reading.\))6 1378(\(This section can)2 742 3 970 2722 t
+10 PI f
+(chem)3407 2722 w
+10 PA f
+(translates your commands into)3 1387 1 3653 2722 t
+10 PI f
+(pic)720 2852 w
+10 PA f
+(, it is often possible to slip in a few)9 1564 1 847 2852 t
+10 PI f
+(pic)2441 2852 w
+10 PA f
+(commands of your own to draw things that)7 1956 1 2597 2852 t
+10 PI f
+(chem)4582 2852 w
+10 PA f
+(can't)4827 2852 w
+( have seen a few examples, such as the)8 1779( We)1 208(handle itself.)1 578 3 720 2982 t
+10 CW f
+(at)3320 2982 w
+10 PA f
+(commands in the section on rings.)5 1564 1 3476 2982 t
+(Here are some more.)3 921 1 720 3112 t
+9 CW f
+(.cstart)1134 3282 w
+( double 2,3)2 594(R: ring)1 432 2 1134 3392 t
+(line from R.V6 to R.C)4 1134 1 1350 3502 t
+(line from R.C to R.V4)4 1134 1 1350 3612 t
+(X1: 1/2 <R.V5,R.C>)2 972 1 1134 3722 t
+(X2: 1/2 <R.C,R.V2>)2 972 1 1134 3832 t
+(bond from X1 to X2)4 972 1 1350 3942 t
+(.cend)1134 4052 w
+10 PA f
+3067 4395 2880 4287 Dl
+3067 4611 3067 4395 Dl
+3039 4593 3039 4410 Dl
+2880 4719 3067 4611 Dl
+2693 4611 2880 4719 Dl
+2693 4395 2693 4611 Dl
+2880 4287 2693 4395 Dl
+2880 4503 2693 4395 Dl
+2880 4719 2880 4503 Dl
+2973 4449 2786 4557 Dl
+2973 4449 1 1 De
+(This relies on knowing that the center of a ring)9 2109 1 720 4933 t
+10 CW f
+(R)2859 4933 w
+10 PA f
+(is called)1 363 1 2949 4933 t
+10 CW f
+(R.C)3343 4933 w
+10 PA f
+(. The)1 248 1 3523 4933 t
+10 PI f
+(pic)3802 4933 w
+10 PA f
+(construction)3960 4933 w
+10 S f
+(a)4542 4933 w
+10 CW f
+(<)4621 4933 w
+10 PA f
+(p)4697 4933 w
+7 PA f
+(1)4768 4953 w
+10 HB f
+(,)4819 4933 w
+10 PA f
+(p)4855 4933 w
+7 PA f
+(2)4926 4953 w
+10 S f
+(>)4985 4933 w
+10 PA f
+(de\256nes a point)2 653 1 720 5063 t
+10 S f
+(a)1398 5063 w
+10 PA f
+(of the way from p)4 792 1 1486 5063 t
+7 PA f
+(1)2289 5083 w
+10 PA f
+(to p)1 173 1 2357 5063 t
+7 PA f
+(2)2541 5083 w
+10 PA f
+(.)2584 5063 w
+(The following diagram of part of DNA shows some more)9 2534 1 970 5229 t
+10 PI f
+(pic)3529 5229 w
+10 PA f
+(commands:)3681 5229 w
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 19 21
+%%Page: 20 22
+/saveobj save def
+mark
+22 pagesetup
+10 PA f
+(- 20 -)2 216 1 2772 480 t
+9 CW f
+(.cstart)1134 890 w
+(P: [)1 216 1 1134 1000 t
+(R1: flatring pointing up put N at 1 put N at 4 double 5,1)13 3078 1 1134 1110 t
+(bond -135 from R1.V4 ; BP)5 1350 1 1350 1220 t
+("deoxyribose" rjust with .e at BP.w)5 1890 1 1350 1330 t
+(R2: ring6 put N at 2 put N at 4 double 1,2 3,4 5,6 with .V6 at R1.V2)17 3672 1 1134 1440 t
+( naming is too restricted in pic)6 1728( #because)1 540(pic Conn: R2.V2.ne)2 972 3 1350 1550 t
+(bond up from R2.V1 ; N)5 1188 1 1350 1660 t
+(bond -60 from N ; H)5 1026 1 1350 1770 t
+(bond 60 from N ; H)5 972 1 1350 1880 t
+(])1134 1990 w
+(# thymine)1 486 1 1350 2100 t
+(Q: [)1 216 1 1134 2210 t
+(R3: ring6 put N at 3 put N at 5 double 1,2)11 2268 1 1134 2320 t
+(bond up from R3.V1 ; CH3)5 1296 1 1350 2430 t
+(bond 120 from R3.V3 ; BP)5 1296 1 1350 2540 t
+("deoxyribose" ljust with .w at BP.e)5 1890 1 1350 2650 t
+(double bond down from R3.V4 ; O)6 1674 1 1350 2760 t
+(double bond -60 from R3.V6 ; O)6 1620 1 1350 2870 t
+(bond -120 from R3.V5 ; H)5 1296 1 1350 2980 t
+(] with .O at P.H + \(.3,.3\))6 1404 1 1134 3090 t
+(bond from Q.O.sw to P.H.ne dotted)5 1782 1 1350 3310 t
+(bond from Q.H.sw to P.Conn dotted)5 1782 1 1350 3420 t
+(.cend)1134 3530 w
+10 PA f
+(N)2268 4621 w
+2496 4698 2359 4619 Dl
+2496 4914 2496 4698 Dl
+2180 4914 2496 4914 Dl
+(N)2081 4945 w
+2122 4699 2122 4857 Dl
+2259 4619 2122 4698 Dl
+2276 4642 2150 4714 Dl
+1990 5056 2091 4955 Dl
+(deoxyribose)1413 5077 w
+2820 4669 2683 4590 Dl
+2809 4695 2683 4623 Dl
+(N)2829 4729 w
+2870 4914 2870 4756 Dl
+2733 4993 2870 4914 Dl
+2716 4970 2842 4898 Dl
+(N)2642 5053 w
+2496 4915 2633 4994 Dl
+2496 4698 2496 4914 Dl
+2524 4715 2524 4898 Dl
+2683 4590 2496 4698 Dl
+2683 4446 2683 4590 Dl
+(N)2642 4420 w
+2529 4276 2653 4348 Dl
+(H)2456 4265 w
+2838 4276 2714 4348 Dl
+(H)2828 4265 w
+3614 4132 3427 4024 Dl
+3586 4148 3427 4056 Dl
+3615 4290 3615 4132 Dl
+(N)3574 4379 w
+3427 4456 3564 4377 Dl
+3290 4377 3427 4456 Dl
+(N)3199 4379 w
+3240 4132 3240 4290 Dl
+3427 4024 3240 4132 Dl
+3427 3880 3427 4024 Dl
+(CH)3398 3853 w
+7 PA f
+(3)3552 3888 w
+10 PA f
+3769 4461 3645 4389 Dl
+(deoxyribose)3805 4481 w
+3442 4600 3442 4456 Dl
+3413 4600 3413 4456 Dl
+(O)3388 4688 w
+3109 4072 3233 4144 Dl
+3123 4047 3247 4119 Dl
+(O)3046 4049 w
+3086 4461 3210 4389 Dl
+(H)3013 4532 w
+7 PA f
+(.)3031 4079 w
+(.)3006 4099 w
+(.)2980 4120 w
+(.)2954 4140 w
+(.)2928 4160 w
+(.)2902 4180 w
+(.)3001 4562 w
+(.)2974 4586 w
+(.)2946 4611 w
+(.)2918 4636 w
+(.)2890 4660 w
+10 PA f
+(Here the trick is to use)5 1039 1 720 5329 t
+10 PI f
+(pic)1793 5329 w
+10 PA f
+( pieces that are glued together at)6 1501('s bracketing construct to make two)5 1619 2 1920 5329 t
+(the desired position.)2 904 1 720 5459 t
+10 PB f
+( Case of Dif\256culty)3 829(7. In)1 225 2 720 5719 t
+10 PI f
+(Chem)970 5885 w
+10 PA f
+( much in the way of error diagnostics: if you make an error, the most)14 3052(does not provide)2 751 2 1237 5885 t
+(likely result will be a complaint from)6 1664 1 720 6015 t
+10 PI f
+(pic)2414 6015 w
+10 PA f
+(, expressed in its own terms, not those of your diagram.)10 2499 1 2541 6015 t
+(For example, a typo like:)4 1092 1 720 6145 t
+9 CW f
+(.cstart)1134 6315 w
+(rng5 put N at 2)4 810 1 1134 6425 t
+10 PA f
+(produces the error message)3 1221 1 720 6615 t
+9 CW f
+(pic: no such variable as rng5 near line 6, file -)10 2646 1 1080 6785 t
+(context is)1 540 1 1134 6895 t
+( at 2)2 270( N)1 162( <<<)1 216( put)1 270( >>>)1 216(Last: rng5)1 594 6 1350 7005 t
+10 PA f
+(The brackets surround the \256rst symbol that)6 1999 1 720 7195 t
+10 PI f
+(pic)2758 7195 w
+10 PA f
+( which is usually close to the)6 1354(didn't recognize,)1 762 2 2924 7195 t
+( line number refers to)4 952( \(The)1 250(actual error.)1 539 3 720 7325 t
+10 PI f
+(chem)2486 7325 w
+10 PA f
+('s output, not input.\))3 915 1 2702 7325 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 20 22
+%%Page: 21 23
+/saveobj save def
+mark
+23 pagesetup
+10 PA f
+(- 21 -)2 216 1 2772 480 t
+10 PI f
+(Chem)970 850 w
+10 PA f
+(is implemented as an)3 939 1 1238 850 t
+10 PI f
+(awk)2203 850 w
+10 PA f
+( a current version of)4 897( your system does not have)5 1214(program. If)1 532 3 2397 850 t
+10 PI f
+(awk)720 980 w
+10 PA f
+(, you will get syntax error messages from)7 1831 1 888 980 t
+10 PI f
+(awk)2745 980 w
+10 PA f
+( messages will appear if your ver-)6 1494(itself. Similar)1 607 2 2939 980 t
+(sion of)1 297 1 720 1110 t
+10 PI f
+(pic)1042 1110 w
+10 PA f
+(is too antiquated.)2 767 1 1194 1110 t
+10 PB f
+( More Examples)2 733( Lots)1 244(Appendix A:)1 583 3 720 1370 t
+10 PA f
+( pieces together to make a fairly complex poly-)8 2132(The \256rst example shows how to put all the)8 1938 2 970 1536 t
+( bond direction does not need to be speci\256ed in the \256rst three lines)13 2963( that the)2 369( Note)1 272(mer repeat unit.)2 716 4 720 1666 t
+( the other hand, it doesn't hurt to specify the bond)10 2381( On)1 203(because the implicit direction is right.)5 1736 3 720 1796 t
+(direction if you like.)3 892 1 720 1926 t
+9 CW f
+(.cstart)1134 2096 w
+(# epoxy based on the m-phenyldiamine cured bisphenol-A)7 2916 1 1080 2206 t
+(size 8)1 324 1 1134 2316 t
+(.ps 8)1 270 1 1134 2426 t
+(bond dotted)1 594 1 1350 2536 t
+(bond ; N)2 432 1 1350 2646 t
+(bond ; CH2)2 540 1 1350 2756 t
+(bond down from N)3 864 1 1350 2866 t
+(R1: benzene)1 648 1 1080 2976 t
+(bond 120 length .1 from R1.V3 ; N)7 1782 1 1350 3086 t
+(bond right length .1 from N)5 1458 1 1350 3196 t
+(bond down length .1 from N)5 1404 1 1350 3306 t
+(# back to the CH2)4 918 1 1080 3416 t
+(bond right from CH2 ; CH)5 1296 1 1350 3526 t
+(bond down from CH ; OH)5 1188 1 1350 3636 t
+(bond right from CH ; CH2)5 1296 1 1350 3746 t
+(bond right ; O)3 756 1 1350 3856 t
+(bond right)1 540 1 1350 3966 t
+(benzene pointing right)2 1188 1 1350 4076 t
+(bond right ; C)3 756 1 1350 4186 t
+(bond up from C ; CH3)5 1080 1 1350 4296 t
+(bond down from C ; CH3)5 1188 1 1350 4406 t
+(bond right from C)3 918 1 1350 4516 t
+(benzene pointing right)2 1188 1 1350 4626 t
+(bond right ; O)3 756 1 1350 4736 t
+(bond right from O ; CH2)5 1242 1 1350 4846 t
+(bond right ; CH)3 810 1 1350 4956 t
+(bond down from CH ; OH)5 1188 1 1350 5066 t
+(bond right from CH ; CH2)5 1296 1 1350 5176 t
+(bond right ; N)3 756 1 1350 5286 t
+(bond right from N)3 918 1 1350 5396 t
+(bond dotted)1 594 1 1350 5506 t
+(bond down from N)3 864 1 1350 5616 t
+(R2: benzene)1 648 1 1080 5726 t
+(bond 120 length .1 from R2.V3 ; N)7 1782 1 1350 5836 t
+(bond right length .1 from N)5 1458 1 1350 5946 t
+(bond down length .1 from N)5 1404 1 1350 6056 t
+(.cend)1134 6166 w
+5 PA f
+( .)1 38( .)1 39(. .)1 51 3 1009 6656 t
+8 PA f
+1247 6654 1132 6654 Dl
+(N)1240 6679 w
+1414 6654 1299 6654 Dl
+(CH)1418 6679 w
+5 PA f
+(2)1541 6704 w
+8 PA f
+1273 6815 1273 6700 Dl
+1422 6901 1273 6815 Dl
+1423 7074 1423 6902 Dl
+1274 7160 1423 7074 Dl
+1124 7075 1273 7161 Dl
+1123 6902 1123 7074 Dl
+1272 6816 1123 6902 Dl
+1186 6988 172 172 De
+1485 7110 1423 7074 Dl
+(N)1467 7167 w
+1598 7143 1526 7143 Dl
+1500 7261 1500 7189 Dl
+1684 6654 1569 6654 Dl
+(CH)1684 6679 w
+1711 6815 1711 6700 Dl
+(OH)1681 6886 w
+1921 6654 1806 6654 Dl
+(CH)1925 6679 w
+5 PA f
+(2)2048 6704 w
+8 PA f
+2191 6654 2076 6654 Dl
+(O)2186 6679 w
+2358 6654 2243 6654 Dl
+2618 6803 2704 6654 Dl
+2446 6804 2618 6804 Dl
+2359 6655 2445 6804 Dl
+2445 6505 2359 6654 Dl
+2617 6504 2445 6504 Dl
+2704 6653 2618 6504 Dl
+2445 6654 172 172 De
+2819 6654 2704 6654 Dl
+(C)2817 6679 w
+2845 6493 2845 6608 Dl
+(CH)2823 6471 w
+5 PA f
+(3)2946 6496 w
+8 PA f
+2845 6815 2845 6700 Dl
+(CH)2823 6886 w
+5 PA f
+(3)2946 6911 w
+8 PA f
+2986 6654 2871 6654 Dl
+3246 6803 3332 6654 Dl
+3074 6804 3246 6804 Dl
+2987 6655 3073 6804 Dl
+3072 6505 2986 6654 Dl
+3245 6504 3073 6504 Dl
+3332 6653 3246 6504 Dl
+3073 6654 172 172 De
+3447 6654 3332 6654 Dl
+(O)3442 6679 w
+3614 6654 3499 6654 Dl
+(CH)3618 6679 w
+5 PA f
+(2)3741 6704 w
+8 PA f
+3885 6654 3770 6654 Dl
+(CH)3884 6679 w
+3911 6815 3911 6700 Dl
+(OH)3881 6886 w
+4121 6654 4006 6654 Dl
+(CH)4125 6679 w
+5 PA f
+(2)4248 6704 w
+8 PA f
+4392 6654 4277 6654 Dl
+(N)4385 6679 w
+4559 6654 4444 6654 Dl
+5 PA f
+( .)1 38( .)1 39(. .)1 51 3 4551 6656 t
+8 PA f
+4418 6815 4418 6700 Dl
+4567 6901 4418 6815 Dl
+4568 7074 4568 6902 Dl
+4419 7160 4568 7074 Dl
+4269 7075 4418 7161 Dl
+4268 6902 4268 7074 Dl
+4417 6816 4268 6902 Dl
+4331 6988 172 172 De
+4630 7110 4568 7074 Dl
+(N)4612 7167 w
+4743 7143 4671 7143 Dl
+4645 7261 4645 7189 Dl
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 21 23
+%%Page: 22 24
+/saveobj save def
+mark
+24 pagesetup
+10 PA f
+(- 22 -)2 216 1 2772 480 t
+( We)1 214( to build this structure.)4 1073(This input for chloral shows but one of many possible ways)10 2783 3 970 850 t
+(chose to start with the vinyl chloro groups.)7 1897 1 720 980 t
+9 CW f
+(.cstart)1134 1150 w
+(Cl)1350 1260 w
+(bond 120 length .25 ; BP)5 1296 1 1350 1370 t
+(bond 60 length .25 from BP ; Cl)7 1674 1 1350 1480 t
+(B1: double bond down length .3 from BP)7 2052 1 1134 1590 t
+(bond 120 length .35 ; BP)5 1296 1 1350 1700 t
+(# now comes the ring)4 1080 1 1134 1810 t
+(R1: ring6 double 1,2 3,4 5,6 with .V6 at BP)9 2322 1 1134 1920 t
+(bond up length .1 from R1.V1 ; H)7 1728 1 1350 2030 t
+(bond 60 length .1 from R1.V2 ; H)7 1728 1 1350 2140 t
+(bond 120 from R1.V3 ; O)5 1242 1 1350 2250 t
+(bond 60 from O ; C)5 972 1 1350 2360 t
+(double bond up from C ; O)6 1350 1 1350 2470 t
+(bond 120 from C)3 810 1 1350 2580 t
+(# continue decorating the ring)4 1620 1 1134 2690 t
+(bond down length .1 from R1.V4 ; H)7 1836 1 1350 2800 t
+(bond -120 length .1 from R1.V5 ; H)7 1836 1 1350 2910 t
+(# now go back and do the left hand ring)9 2106 1 1134 3020 t
+(bond -120 length .35 from B1.end ; BP)7 1998 1 1350 3130 t
+(R2: ring6 double 1,2 3,4 5,6 with .V2 at BP)9 2322 1 1134 3240 t
+(bond up length .1 from R2.V1 ; H)7 1728 1 1350 3350 t
+(bond -60 length .1 from R2.V6 ; H)7 1782 1 1350 3460 t
+(bond -120 from R2.V5 ; O)5 1296 1 1350 3570 t
+(bond -60 from O)3 810 1 1350 3680 t
+(bond down length .1 from R2.V4 ; H)7 1836 1 1350 3790 t
+(bond 120 length .1 from R2.V3 ; H)7 1782 1 1350 3900 t
+(.cend)1134 4010 w
+10 PA f
+(Cl)2528 4333 w
+2786 4433 2630 4343 Dl
+2942 4343 2786 4433 Dl
+(Cl)2944 4333 w
+2801 4649 2801 4433 Dl
+2772 4649 2772 4433 Dl
+3004 4775 2786 4649 Dl
+3379 4775 3192 4667 Dl
+3351 4792 3192 4700 Dl
+3379 4991 3379 4775 Dl
+3192 5099 3379 4991 Dl
+3192 5067 3351 4975 Dl
+3005 4991 3192 5099 Dl
+3005 4775 3005 4991 Dl
+3033 4792 3033 4975 Dl
+3192 4667 3005 4775 Dl
+3192 4595 3192 4667 Dl
+(H)3151 4568 w
+3441 4739 3379 4775 Dl
+(H)3431 4729 w
+3503 5063 3379 4991 Dl
+(O)3495 5134 w
+3689 4991 3565 5063 Dl
+(C)3685 4981 w
+3705 4749 3705 4893 Dl
+3734 4749 3734 4893 Dl
+(O)3681 4722 w
+3874 5063 3750 4991 Dl
+3192 5171 3192 5099 Dl
+(H)3151 5260 w
+2943 5027 3005 4991 Dl
+(H)2871 5098 w
+2568 4775 2786 4649 Dl
+2568 4775 2381 4667 Dl
+2540 4792 2381 4700 Dl
+2568 4991 2568 4775 Dl
+2381 5099 2568 4991 Dl
+2381 5067 2540 4975 Dl
+2194 4991 2381 5099 Dl
+2194 4775 2194 4991 Dl
+2222 4792 2222 4975 Dl
+2381 4667 2194 4775 Dl
+2381 4595 2381 4667 Dl
+(H)2340 4568 w
+2132 4739 2194 4775 Dl
+(H)2060 4729 w
+2070 5063 2194 4991 Dl
+(O)2000 5134 w
+1884 4991 2008 5063 Dl
+2381 5171 2381 5099 Dl
+(H)2340 5260 w
+2630 5027 2568 4991 Dl
+(H)2620 5098 w
+( don't know the)3 707(Sometimes it is necessary to draw bonds that connect to something, but you)12 3363 2 970 5536 t
+( provides an example: the long horizontal bond near the)9 2644( Morphine)1 511(exact angle for the bond.)4 1165 3 720 5666 t
+(nitrogen is speci\256ed in the last three lines of the input.)10 2396 1 720 5796 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 22 24
+%%Page: 23 25
+/saveobj save def
+mark
+25 pagesetup
+10 PA f
+(- 23 -)2 216 1 2772 480 t
+9 CW f
+(.cstart)1134 890 w
+(R1: ring6 double 1,2)3 1080 1 1134 1000 t
+(bond -60 from R1.V6 ; HO)5 1296 1 1350 1110 t
+(R2: ring6 with .V1 at R1.V3)5 1458 1 1134 1220 t
+(bond 60 from R2.V2 ; N)5 1188 1 1350 1330 t
+(bond right from N ; CH3)5 1242 1 1350 1440 t
+(R3: benzene with .V1 at R2.V5)5 1566 1 1134 1550 t
+(bond -120 from R3.V5 ; HO)5 1350 1 1350 1660 t
+(# this is the furan ring)5 1296 1 1134 1770 t
+(bond -135 length .33 from R1.V5 ; O)7 1890 1 1350 1880 t
+(bond -45 length .33 from R3.V6)5 1620 1 1350 1990 t
+(# this is the odd ring)5 1188 1 1134 2100 t
+(bond up length .1 from N ; BP)7 1566 1 1350 2210 t
+( up length .33 from R1.V4)5 1350(B1: bond)1 486 2 1080 2320 t
+(bond to BP)2 540 1 1350 2430 t
+(.cend)1134 2540 w
+10 PA f
+2836 2945 2649 2837 Dl
+2808 2962 2649 2870 Dl
+2836 3161 2836 2945 Dl
+2649 3269 2836 3161 Dl
+2462 3161 2649 3269 Dl
+2463 2945 2463 3161 Dl
+2650 2837 2463 2945 Dl
+2339 2873 2463 2945 Dl
+(HO)2183 2863 w
+3023 3269 2836 3161 Dl
+3024 3485 3024 3269 Dl
+2837 3593 3024 3485 Dl
+2649 3485 2836 3593 Dl
+2649 3269 2649 3485 Dl
+2836 3161 2649 3269 Dl
+3148 3197 3024 3269 Dl
+(N)3138 3187 w
+3366 3156 3222 3156 Dl
+(CH)3380 3187 w
+7 PA f
+(3)3534 3222 w
+10 PA f
+2836 3593 2649 3485 Dl
+2836 3809 2836 3593 Dl
+2649 3917 2836 3809 Dl
+2462 3809 2649 3917 Dl
+2463 3593 2463 3809 Dl
+2650 3485 2463 3593 Dl
+2541 3701 216 216 De
+2339 3881 2463 3809 Dl
+(HO)2183 3952 w
+2296 3328 2463 3161 Dl
+(O)2225 3400 w
+2296 3426 2463 3593 Dl
+3179 3027 3179 3099 Dl
+2649 3032 2649 3269 Dl
+3178 3027 2649 3032 Dl
+3179 3027 1 1 De
+(This diagram of chlorophyll shows how)5 1916 1 970 4229 t
+10 PI f
+(chem)2942 4229 w
+10 PA f
+(can be used to produce very complex)6 1834 1 3206 4229 t
+( was necessary to use)4 953(molecules. It)1 588 2 720 4359 t
+10 CW f
+(right of)1 448 1 2289 4359 t
+10 PA f
+(and)2765 4359 w
+10 CW f
+(left of)1 388 1 2962 4359 t
+10 PA f
+( CH)1 181(to get the)2 420 2 3378 4359 t
+7 PA f
+(2)3990 4379 w
+10 PA f
+(CH)4041 4359 w
+7 PA f
+(2)4206 4379 w
+10 PA f
+(and the OCH)2 595 1 4276 4359 t
+7 PA f
+(3)4882 4379 w
+10 PA f
+(to)4952 4359 w
+( could have used)3 774( \(We)1 240( note how the bonds from Mg to N are speci\256ed.)10 2234( Also)1 263(position correctly.)1 809 5 720 4489 t
+(dashed bonds, or we could have used)6 1664 1 720 4619 t
+10 CW f
+(arrow)2409 4619 w
+10 PA f
+(in)2734 4619 w
+10 PI f
+(pic)2846 4619 w
+10 PA f
+(to specify different bonds.\))3 1187 1 2990 4619 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 23 25
+%%Page: 24 26
+/saveobj save def
+mark
+26 pagesetup
+10 PA f
+(- 24 -)2 216 1 2772 480 t
+9 CW f
+(.cstart)1134 890 w
+(Mg)1350 1000 w
+(bond 45 ; N)3 594 1 1350 1110 t
+(R1: ring5 pointing up put N at 4 double 1,2 4,5 with .V4 at N)14 3294 1 1134 1220 t
+(bond up from R1.V1 ; CH3)5 1296 1 1620 1330 t
+(bond right from R1.V2 ; CH2CH3)5 1620 1 1620 1440 t
+(bond 135 from Mg ; N)5 1080 1 1350 1550 t
+(R2: ring5 pointing down put N at 3 double 1,2 4,5 with .V3 at N)14 3402 1 1134 1660 t
+(bond right from R2.V5 ; CH3)5 1458 1 1620 1770 t
+(bond 225 from Mg ; N)5 1080 1 1350 1880 t
+(R3: ring5 pointing down put N at 4 double 3,4 with .V4 at N)13 3186 1 1134 1990 t
+(bond -45 from Mg ; N)5 1080 1 1350 2100 t
+(R4: ring5 pointing up put N at 3 double 1,5 with .V3 at N)13 3078 1 1134 2210 t
+( R4.V5 ; H3C)3 648( from)1 324(bond left)1 486 3 1620 2320 t
+(bond up from R4.V1 ; CH)5 1242 1 1620 2430 t
+(double bond right length .1 from CH ; CH2)8 2214 1 1620 2540 t
+(double bond 150 length .3 from R1.V3)6 1944 1 1350 2650 t
+(bond to R2.V4)2 702 1 1350 2760 t
+(R5: ring5 pointing 72 with .V5 at R2.V2)7 2106 1 1134 2870 t
+(double bond 135 from R5.V2 ; O)6 1620 1 1620 2980 t
+(bond down from R5.V3 ; C)5 1296 1 1620 3090 t
+(double bond left length .1 from C ; O)8 1998 1 1620 3200 t
+(bond down from C ; O)5 1080 1 1620 3310 t
+(CH3 left of O)3 702 1 1620 3420 t
+(double bond -25 from R5.V4)4 1404 1 1350 3530 t
+(bond down from R3.V1 ; CH2)5 1404 1 1350 3640 t
+(CH2 left of CH2)3 810 1 1350 3750 t
+(bond left ; C)3 702 1 1350 3860 t
+(double bond -45 ; O)4 1026 1 1350 3970 t
+(bond -135 from C ; C20H39O)5 1404 1 1350 4080 t
+(bond left from R3.V2 ; H3C)5 1404 1 1350 4190 t
+(double bond -150 length .3 from R4.V4)6 1998 1 1350 4300 t
+(bond to R3.V3)2 702 1 1350 4410 t
+(.cend)1134 4520 w
+10 PA f
+(Mg)2921 5560 w
+3149 5388 3048 5489 Dl
+(N)3139 5377 w
+3462 5140 3288 5014 Dl
+3436 5149 3288 5041 Dl
+3397 5345 3463 5140 Dl
+3238 5346 3396 5346 Dl
+(N)3139 5377 w
+3114 5142 3162 5292 Dl
+3141 5149 3185 5287 Dl
+3287 5014 3113 5140 Dl
+3288 4870 3288 5014 Dl
+(CH)3259 4843 w
+7 PA f
+(3)3413 4878 w
+10 PA f
+3607 5140 3463 5140 Dl
+(CH)3634 5171 w
+7 PA f
+(2)3788 5206 w
+10 PA f
+(CH)3823 5171 w
+7 PA f
+(3)3977 5206 w
+10 PA f
+3149 5671 3048 5570 Dl
+(N)3139 5744 w
+3114 5919 3288 6045 Dl
+3140 5909 3288 6017 Dl
+3161 5768 3113 5918 Dl
+(N)3139 5744 w
+3396 5713 3238 5713 Dl
+3462 5918 3396 5713 Dl
+3436 5909 3380 5735 Dl
+3289 6044 3463 5918 Dl
+3607 5918 3463 5918 Dl
+(CH)3621 5949 w
+7 PA f
+(3)3775 5984 w
+10 PA f
+2843 5671 2944 5570 Dl
+(N)2770 5744 w
+2529 5919 2703 6045 Dl
+2595 5713 2529 5918 Dl
+2753 5713 2595 5713 Dl
+2757 5735 2612 5735 Dl
+(N)2770 5744 w
+2877 5918 2829 5768 Dl
+2704 6044 2878 5918 Dl
+2843 5388 2944 5489 Dl
+(N)2770 5377 w
+2877 5140 2703 5014 Dl
+2830 5290 2878 5140 Dl
+(N)2770 5377 w
+2595 5346 2753 5346 Dl
+2529 5141 2595 5346 Dl
+2703 5014 2529 5140 Dl
+2703 5041 2555 5149 Dl
+2385 5140 2529 5140 Dl
+(H)2183 5171 w
+7 PA f
+(3)2266 5206 w
+10 PA f
+(C)2301 5171 w
+2703 4870 2703 5014 Dl
+(CH)2669 4843 w
+2905 4798 2833 4798 Dl
+2905 4827 2833 4827 Dl
+(CH)2919 4843 w
+7 PA f
+(2)3073 4878 w
+10 PA f
+3517 5526 3409 5339 Dl
+3491 5541 3383 5354 Dl
+3396 5712 3504 5533 Dl
+3396 5713 1 1 De
+3222 6250 3288 6045 Dl
+3005 6251 3221 6251 Dl
+2939 6046 3005 6251 Dl
+3112 5919 2938 6045 Dl
+3287 6044 3113 5918 Dl
+3333 6342 3232 6241 Dl
+3312 6362 3211 6261 Dl
+(O)3315 6424 w
+3005 6395 3005 6251 Dl
+(C)2970 6483 w
+2890 6467 2962 6467 Dl
+2890 6438 2962 6438 Dl
+(O)2808 6483 w
+3005 6654 3005 6510 Dl
+(O CH)1 -37 1 2966 6742 t
+7 PA f
+(3)2929 6777 w
+10 PA f
+2865 5921 2926 6051 Dl
+2891 5909 2952 6039 Dl
+2703 6189 2703 6045 Dl
+(CH)2674 6277 w
+7 PA f
+(2)2828 6312 w
+10 PA f
+(CH)2472 6277 w
+7 PA f
+(2)2626 6312 w
+10 PA f
+2314 6246 2458 6246 Dl
+(C)2236 6277 w
+2130 6115 2231 6216 Dl
+2150 6095 2251 6196 Dl
+(O)2069 6094 w
+2140 6388 2241 6287 Dl
+(C)1750 6461 w
+7 PA f
+(20)1821 6496 w
+10 PA f
+(H)1891 6461 w
+7 PA f
+(39)1974 6496 w
+10 PA f
+(O)2044 6461 w
+2385 5918 2529 5918 Dl
+(H)2183 5949 w
+7 PA f
+(3)2266 5984 w
+10 PA f
+(C)2301 5949 w
+2500 5541 2608 5354 Dl
+2475 5526 2583 5339 Dl
+2595 5712 2487 5533 Dl
+2595 5713 1 1 De
+(The next example shows how to escape into)7 1946 1 970 7019 t
+10 PI f
+(pic)2942 7019 w
+10 PA f
+( not provided for)3 765(to make structures that are)4 1188 2 3087 7019 t
+(in)720 7149 w
+10 PI f
+(chem)833 7149 w
+10 PA f
+( we de\256ne the cyclohexane chair structure as)7 1983(. First)1 276 2 1041 7149 t
+10 CW f
+(chair)3326 7149 w
+10 PA f
+(in)3652 7149 w
+10 PI f
+(pic)3765 7149 w
+10 PA f
+( glue several)2 556(, and we then)3 600 2 3884 7149 t
+( can be added to these)5 1073( Substituents)1 615(of the chairs together to make the desired structure.)8 2436 3 720 7279 t
+10 PI f
+(pic)4888 7279 w
+10 PA f
+(-)5007 7279 w
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 24 26
+%%Page: 25 27
+/saveobj save def
+mark
+27 pagesetup
+10 PA f
+(- 25 -)2 216 1 2772 480 t
+(de\256ned structures, just as with rings.)5 1632 1 720 850 t
+9 CW f
+(.cstart)1134 1020 w
+(pic define chair { [)4 1080 1 1134 1130 t
+( 120 length .25)3 810(V1: bond)1 486 2 1350 1240 t
+( right length .35)3 918(V2: bond)1 486 2 1350 1350 t
+( 150 length .35)3 810(V3: bond)1 486 2 1350 1460 t
+( -60 length .25)3 810(V4: bond)1 486 2 1350 1570 t
+( left length .35)3 864(V5: bond)1 486 2 1350 1680 t
+( to V1.start)2 648(V6: bond)1 486 2 1350 1790 t
+(pic ] })2 378 1 1134 1900 t
+(R1: chair)1 486 1 1134 2120 t
+(R2: chair with .V1 at R1.V4.start)5 1782 1 1134 2230 t
+(bond 60 from R2.V4.start ; CH3)5 1620 1 1134 2450 t
+(bond down from R2.V4.start ; OH)5 1674 1 1134 2560 t
+(.cend)1134 2670 w
+10 PA f
+2338 2995 2182 2905 Dl
+2590 2995 2338 2995 Dl
+2716 3213 2590 2995 Dl
+2560 3123 2716 3213 Dl
+2308 3123 2560 3123 Dl
+2182 2905 2308 3123 Dl
+2182 2905 1 1 De
+2872 3303 2716 3213 Dl
+3123 3303 2871 3303 Dl
+3249 3521 3123 3303 Dl
+3093 3431 3249 3521 Dl
+2842 3431 3094 3431 Dl
+2716 3213 2842 3431 Dl
+2716 3213 1 1 De
+3373 3449 3249 3521 Dl
+(CH)3376 3439 w
+7 PA f
+(3)3530 3474 w
+10 PA f
+3249 3665 3249 3521 Dl
+(OH)3211 3753 w
+( certain parts of a struc-)5 1087(The next example shows how to position arrows and text beneath)10 2983 2 970 4030 t
+( ``up arrow'' is of default length, and is drawn with the)11 2429(ture. The)1 423 2 720 4160 t
+10 CW f
+(line <-)1 385 1 3597 4160 t
+10 PA f
+(statement.)4007 4160 w
+9 CW f
+(.cstart)1134 4330 w
+(bond length .1 ; BP)4 1026 1 1350 4440 t
+(bond up length .5)3 918 1 1350 4550 t
+(bond right)1 540 1 1350 4660 t
+(bond down length .5 from BP)5 1458 1 1350 4770 t
+(bond right)1 540 1 1350 4880 t
+(bond right from BP ; C)5 1188 1 1350 4990 t
+(double bond up ; O)4 972 1 1350 5100 t
+(bond right from C)3 918 1 1350 5210 t
+(benzene pointing right)2 1188 1 1350 5320 t
+(bond right ; C)3 756 1 1350 5430 t
+(double bond up from C ; O)6 1350 1 1350 5540 t
+(bond right from C ; O)5 1134 1 1350 5650 t
+(bond right ; CH2)3 864 1 1350 5760 t
+(# this is the statement to make the arrow)8 2214 1 1134 5870 t
+(line <- from CH2.s down)4 1242 1 1350 5980 t
+(move down .1 ; "0.085")4 1188 1 1350 6090 t
+(CH2CH2CH2 right of CH2)3 1188 1 1350 6200 t
+(bond right ; O)3 756 1 1350 6310 t
+(bond right length .1 ; BP)5 1350 1 1350 6420 t
+(bond up length .5 from BP)5 1350 1 1350 6530 t
+(bond left)1 486 1 1350 6640 t
+(bond right length .1 from BP)5 1512 1 1350 6750 t
+(bond down length .5 from BP ; BP)7 1728 1 1350 6860 t
+(bond left)1 486 1 1350 6970 t
+("$n$" with .w at BP.se)4 1188 1 1350 7080 t
+(.cend)1134 7190 w
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 25 27
+%%Page: 26 28
+/saveobj save def
+mark
+28 pagesetup
+10 PA f
+(- 26 -)2 216 1 2772 480 t
+1598 1210 1526 1210 Dl
+1598 850 1598 1210 Dl
+1742 850 1598 850 Dl
+1598 1570 1598 1210 Dl
+1742 1570 1598 1570 Dl
+1742 1210 1598 1210 Dl
+(C)1750 1240 w
+1770 1008 1770 1152 Dl
+1799 1008 1799 1152 Dl
+(O)1746 981 w
+1972 1210 1828 1210 Dl
+2296 1397 2404 1210 Dl
+2080 1397 2296 1397 Dl
+1972 1210 2080 1397 Dl
+2080 1023 1972 1210 Dl
+2296 1022 2080 1022 Dl
+2404 1209 2296 1022 Dl
+2080 1210 216 216 De
+2548 1210 2404 1210 Dl
+(C)2556 1240 w
+2577 1008 2577 1152 Dl
+2606 1008 2606 1152 Dl
+(O)2552 981 w
+2778 1210 2634 1210 Dl
+(O)2783 1240 w
+3009 1210 2865 1210 Dl
+(CH)3023 1240 w
+7 PA f
+(2)3177 1275 w
+10 PA f
+3117 1267 3135 1339 Dl
+3117 1267 3099 1339 Dl
+3117 1411 3117 1267 Dl
+(0.085)3005 1561 w
+(CH)3251 1240 w
+7 PA f
+(2)3405 1275 w
+10 PA f
+(CH)3440 1240 w
+7 PA f
+(2)3594 1275 w
+10 PA f
+(CH)3629 1240 w
+7 PA f
+(2)3783 1275 w
+10 PA f
+4002 1210 3858 1210 Dl
+(O)4007 1240 w
+4161 1210 4089 1210 Dl
+4161 850 4161 1210 Dl
+4017 850 4161 850 Dl
+4233 1210 4161 1210 Dl
+4161 1570 4161 1210 Dl
+4017 1570 4161 1570 Dl
+10 PI f
+(n)4169 1590 w
+10 PA f
+( atoms or groups of atoms as is shown in the following struc-)12 2804(We can draw circles around)4 1266 2 970 1877 t
+(ture.)720 2007 w
+9 CW f
+(.cstart)1134 2177 w
+(bond 120 ; C)3 648 1 1134 2397 t
+(bond 60 ; C)3 594 1 1134 2507 t
+(bond up ; Cl)3 648 1 1350 2617 t
+(double bond 120 from C ; C)6 1404 1 1134 2727 t
+(bond 60 ; C)3 594 1 1134 2837 t
+(bond 120 ; C)3 648 1 1134 2947 t
+(bond 60 ; C)3 594 1 1134 3057 t
+(bond up ; Cl)3 648 1 1350 3167 t
+(double bond 120 from C ; C)6 1404 1 1134 3277 t
+(circle at C rad .08)4 1026 1 1350 3387 t
+(bond 60 from C ; C)5 972 1 1134 3497 t
+(bond 120 ; C)3 648 1 1134 3607 t
+(bond 60 ; C)3 594 1 1134 3717 t
+(double bond 120 ; C)4 1026 1 1134 3827 t
+(bond down ; Cl)3 756 1 1350 3937 t
+(bond 60 from C ; C)5 972 1 1134 4047 t
+(bond 120)1 432 1 1134 4157 t
+(.cend)1134 4267 w
+10 PA f
+1827 4931 1703 4859 Dl
+(C)1823 5002 w
+2012 4859 1888 4931 Dl
+(C)2009 4849 w
+2044 4617 2044 4761 Dl
+(Cl)2015 4590 w
+2205 4918 2081 4846 Dl
+2191 4944 2067 4872 Dl
+(C)2195 5002 w
+2384 4859 2260 4931 Dl
+(C)2380 4849 w
+2570 4931 2446 4859 Dl
+(C)2566 5002 w
+2755 4859 2631 4931 Dl
+(C)2752 4849 w
+2787 4617 2787 4761 Dl
+(Cl)2758 4590 w
+2948 4918 2824 4846 Dl
+2934 4944 2810 4872 Dl
+(C)2938 5002 w
+2915 4972 115 115 De
+3127 4859 3003 4931 Dl
+(C)3123 4849 w
+3313 4931 3189 4859 Dl
+(C)3309 5002 w
+3498 4859 3374 4931 Dl
+(C)3495 4849 w
+3691 4918 3567 4846 Dl
+3677 4944 3553 4872 Dl
+(C)3681 5002 w
+3716 5173 3716 5029 Dl
+(Cl)3687 5262 w
+3870 4859 3746 4931 Dl
+(C)3866 4849 w
+4056 4931 3932 4859 Dl
+( can be drawn by specifying the various components between square)10 3184(Chemical equations)1 886 2 970 5538 t
+(brackets, and then using)3 1079 1 720 5668 t
+10 PI f
+(pic)1824 5668 w
+10 PA f
+(to make arrows and to position text.)6 1599 1 1968 5668 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 26 28
+%%Page: 27 29
+/saveobj save def
+mark
+29 pagesetup
+10 PA f
+(- 27 -)2 216 1 2772 480 t
+9 CW f
+(.cstart)1134 890 w
+([)1134 1000 w
+(bond right ; CH2)3 864 1 1350 1110 t
+(bond 120 ; \(CH2\))3 864 1 1350 1220 t
+("$nothing sub n$")2 918 1 1350 1330 t
+(bond 60 ; .CH2)3 756 1 1350 1440 t
+(])1134 1550 w
+(# now put the arrow in)5 1188 1 1134 1660 t
+(move right .3)2 702 1 1350 1770 t
+(arrow .5)1 432 1 1350 1880 t
+(move right .3)2 702 1 1350 1990 t
+(# begin second structure)3 1296 1 1134 2100 t
+([)1134 2210 w
+(bond right ; CH.)3 864 1 1350 2320 t
+(bond 120 ; \(CH2\))3 864 1 1350 2430 t
+("$nothing sub n$")2 918 1 1350 2540 t
+(bond 60 ; CH3)3 702 1 1350 2650 t
+(])1134 2760 w
+(.cend)1134 2870 w
+10 PA f
+1445 3179 1301 3179 Dl
+(CH)1459 3209 w
+7 PA f
+(2)1613 3244 w
+10 PA f
+1772 3292 1648 3220 Dl
+(\(CH)1784 3364 w
+7 PA f
+(2)1971 3399 w
+10 PA f
+(\))2006 3364 w
+7 PI f
+(n)2080 3373 w
+10 PA f
+2258 3203 2134 3275 Dl
+(.)2269 3163 w
+(CH)2294 3193 w
+7 PA f
+(2)2448 3228 w
+10 PA f
+3082 3247 2722 3247 Dl
+3082 3247 3010 3265 Dl
+3082 3247 3010 3229 Dl
+3442 3179 3298 3179 Dl
+(CH)3461 3209 w
+(.)3615 3179 w
+3769 3292 3645 3220 Dl
+(\(CH)3781 3364 w
+7 PA f
+(2)3968 3399 w
+10 PA f
+(\))4003 3364 w
+7 PI f
+(n)4078 3373 w
+10 PA f
+4256 3203 4132 3275 Dl
+(CH)4257 3193 w
+7 PA f
+(3)4411 3228 w
+10 PA f
+(The \256nal example is a long and repetitive exercise, poly\(vinyl chloride\).)10 3161 1 970 3640 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 27 29
+%%Page: 28 30
+/saveobj save def
+mark
+30 pagesetup
+10 PA f
+(- 28 -)2 216 1 2772 480 t
+7 CW f
+(.ps 8)1 210 1 1122 840 t
+(.cstart)1122 900 w
+(db = .12)2 336 1 1080 960 t
+(cwid = .095)2 462 1 1080 1020 t
+(A: [)1 168 1 1080 1080 t
+(bond dotted)1 462 1 1350 1140 t
+(bond right ; CH)3 630 1 1350 1200 t
+(bond down ; Cl)3 588 1 1350 1260 t
+(bond right from CH ; CH2)5 1008 1 1350 1320 t
+(bond ; CH)2 378 1 1350 1380 t
+(bond down ; Cl)3 588 1 1350 1440 t
+(bond right from CH ; CH2)5 1008 1 1350 1500 t
+(bond ; C.)2 378 1 1350 1560 t
+(bond down ; Cl)3 588 1 1350 1620 t
+(bond right from C ; CH2)5 966 1 1350 1680 t
+(bond ; CH2)2 420 1 1350 1740 t
+(bond down ; Cl)3 588 1 1350 1800 t
+(])1080 1860 w
+( ljust at A.e)3 546(" \(6.13a\)")1 588 2 1080 1920 t
+(arrow down .5 from A.s)4 924 1 1080 2040 t
+([)1080 2100 w
+(CH2)1350 2160 w
+(double bond right ; CHCl)4 1008 1 1350 2220 t
+(] with .w at last arrow.c)5 1050 1 1080 2280 t
+(B: [)1 168 1 1080 2400 t
+(bond dotted)1 462 1 1350 2460 t
+(bond right ; CH)3 630 1 1350 2520 t
+(bond down ; Cl)3 588 1 1350 2580 t
+(bond right from CH ; CH2)5 1008 1 1350 2640 t
+(bond ; CH)2 378 1 1350 2700 t
+(bond down ; Cl)3 588 1 1350 2760 t
+(bond right from CH ; CH2)5 1008 1 1350 2820 t
+(bond ; C)2 336 1 1350 2880 t
+(bond up ; Cl)3 504 1 1350 2940 t
+(bond down from C ; CH2)5 924 1 1350 3000 t
+(bond ; CH2Cl)2 504 1 1350 3060 t
+(bond right from C ; CH2)5 966 1 1350 3120 t
+(bond ; CH)2 378 1 1350 3180 t
+(bond down ; Cl)3 588 1 1350 3240 t
+(bond right from CH)3 756 1 1350 3300 t
+(bond dotted)1 462 1 1350 3360 t
+(] with .n at end of last arrow)7 1260 1 1080 3420 t
+( ljust at B.e)3 546(" \(6.13b\)")1 588 2 1080 3480 t
+(C: [)1 168 1 1080 3600 t
+(bond dotted)1 462 1 1350 3660 t
+(bond right ; CH)3 630 1 1350 3720 t
+(bond down ; Cl)3 588 1 1350 3780 t
+(bond right from CH ; CH2)5 1008 1 1350 3840 t
+(bond ; C.)2 378 1 1350 3900 t
+(bond down ; Cl)3 588 1 1350 3960 t
+(bond right from C ; CH2)5 966 1 1350 4020 t
+(bond ; CH)2 378 1 1350 4080 t
+(bond down ; Cl)3 588 1 1350 4140 t
+(bond right from CH ; CH2)5 1008 1 1350 4200 t
+(bond ; CH2)2 420 1 1350 4260 t
+(bond down ; Cl)3 588 1 1350 4320 t
+(] with .n at B.s - \(0,.5\))6 1050 1 1080 4380 t
+( ljust at C.e)3 546(" \(6.14a\)")1 588 2 1080 4440 t
+(arrow down .3 from C.s)4 924 1 1080 4560 t
+([)1080 4620 w
+(CH2)1350 4680 w
+(double bond right)2 714 1 1350 4740 t
+(CHCl)1350 4800 w
+(] with .w at last arrow.s)5 1050 1 1080 4860 t
+(arrow down .3 from last arrow.s)5 1302 1 1080 4920 t
+(D: [)1 168 1 1080 5040 t
+(bond dotted)1 462 1 1350 5100 t
+(bond right ; CH)3 630 1 1350 5160 t
+(bond down ; Cl)3 588 1 1350 5220 t
+(bond right from CH ; CH2)5 1008 1 1350 5280 t
+(bond ; C)2 336 1 1350 5340 t
+(bond up ; Cl)3 504 1 1350 5400 t
+(bond down from C ; CH2)5 924 1 1350 5460 t
+(bond ; CHCl)2 462 1 1350 5520 t
+(bond ; CH2)2 420 1 1350 5580 t
+(bond ; CH2Cl)2 504 1 1350 5640 t
+(bond right from C ; CH2)5 966 1 1350 5700 t
+(bond ; CH)2 378 1 1350 5760 t
+(bond down ; Cl)3 588 1 1350 5820 t
+(bond right from CH ; CH2)5 1008 1 1350 5880 t
+(bond ; CH)2 378 1 1350 5940 t
+(bond down ; Cl)3 588 1 1350 6000 t
+(bond right from CH)3 756 1 1350 6060 t
+(bond dotted)1 462 1 1350 6120 t
+(] with .n at last arrow.s)5 1050 1 1080 6180 t
+( ljust at D.e)3 546(" \(6.14b\)")1 588 2 1080 6240 t
+(E: [)1 168 1 1080 6360 t
+(bond dotted)1 462 1 1350 6420 t
+(bond ; CH)2 378 1 1350 6480 t
+(bond down ; Cl)3 588 1 1350 6540 t
+(bond right from CH ; CH2)5 1008 1 1350 6600 t
+(bond ; CH)2 378 1 1350 6660 t
+(bond down ; Cl)3 588 1 1350 6720 t
+(bond right from CH ; CH2)5 1008 1 1350 6780 t
+(bond ; CH)2 378 1 1350 6840 t
+(bond down ; Cl)3 588 1 1350 6900 t
+(bond right from CH ; CH2)5 1008 1 1350 6960 t
+(bond ; CH)2 378 1 1350 7020 t
+(bond down ; Cl)3 588 1 1350 7080 t
+(] with .e at B.w - \(.5,0\))6 1050 1 1080 7140 t
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 28 30
+%%Page: 29 31
+/saveobj save def
+mark
+31 pagesetup
+10 PA f
+(- 29 -)2 216 1 2772 480 t
+7 CW f
+(arrow from E.ne to A.sw)4 966 1 1080 780 t
+(arrow from E.se to C.nw)4 966 1 1080 840 t
+(.cend)1122 900 w
+5 PA f
+( .)1 44(. .)1 56 2 3033 1194 t
+8 PA f
+3214 1192 3128 1192 Dl
+(CH)3221 1219 w
+3248 1336 3248 1250 Dl
+(Cl)3225 1421 w
+3437 1192 3351 1192 Dl
+(CH)3449 1219 w
+5 PA f
+(2)3572 1244 w
+8 PA f
+3694 1192 3608 1192 Dl
+(CH)3702 1219 w
+3729 1336 3729 1250 Dl
+(Cl)3706 1421 w
+3917 1192 3831 1192 Dl
+(CH)3929 1219 w
+5 PA f
+(2)4052 1244 w
+8 PA f
+4175 1192 4089 1192 Dl
+(C)4188 1219 w
+(.)4245 1195 w
+4209 1336 4209 1250 Dl
+(Cl)4186 1421 w
+4363 1192 4277 1192 Dl
+(CH)4375 1219 w
+5 PA f
+(2)4498 1244 w
+8 PA f
+4621 1192 4535 1192 Dl
+(CH)4633 1219 w
+5 PA f
+(2)4756 1244 w
+8 PA f
+4655 1336 4655 1250 Dl
+(Cl)4633 1421 w
+(\(6.13a\))4892 1309 w
+3917 1811 3917 1451 Dl
+3917 1811 3899 1739 Dl
+3917 1811 3935 1739 Dl
+(CH)3937 1658 w
+5 PA f
+(2)4060 1683 w
+8 PA f
+4183 1617 4097 1617 Dl
+4183 1646 4097 1646 Dl
+(CHCl)4202 1658 w
+5 PA f
+(. . .)2 99 1 2981 2073 t
+8 PA f
+3161 2071 3075 2071 Dl
+(CH)3169 2097 w
+3196 2214 3196 2128 Dl
+(Cl)3173 2299 w
+3384 2071 3298 2071 Dl
+(CH)3396 2097 w
+5 PA f
+(2)3519 2122 w
+8 PA f
+3642 2071 3556 2071 Dl
+(CH)3650 2097 w
+3676 2214 3676 2128 Dl
+(Cl)3653 2299 w
+3865 2071 3779 2071 Dl
+(CH)3877 2097 w
+5 PA f
+(2)4000 2122 w
+8 PA f
+4122 2071 4036 2071 Dl
+(C)4129 2097 w
+4157 1927 4157 2013 Dl
+(Cl)4134 1896 w
+4157 2214 4157 2128 Dl
+(CH)4134 2299 w
+5 PA f
+(2)4257 2324 w
+8 PA f
+4157 2416 4157 2330 Dl
+(CH)4145 2501 w
+5 PA f
+(2)4268 2526 w
+8 PA f
+(Cl)4293 2501 w
+4277 2071 4191 2071 Dl
+(CH)4289 2097 w
+5 PA f
+(2)4412 2122 w
+8 PA f
+4535 2071 4449 2071 Dl
+(CH)4543 2097 w
+4569 2214 4569 2128 Dl
+(Cl)4546 2299 w
+4758 2071 4672 2071 Dl
+5 PA f
+( .)1 43(. .)1 57 2 4750 2073 t
+8 PA f
+(\(6.13b\))4945 2187 w
+5 PA f
+( .)1 44(. .)1 56 2 3033 2951 t
+8 PA f
+3214 2949 3128 2949 Dl
+(CH)3221 2976 w
+3248 3093 3248 3007 Dl
+(Cl)3225 3177 w
+3437 2949 3351 2949 Dl
+(CH)3449 2976 w
+5 PA f
+(2)3572 3001 w
+8 PA f
+3694 2949 3608 2949 Dl
+(C)3708 2976 w
+(.)3765 2952 w
+3729 3093 3729 3007 Dl
+(Cl)3706 3177 w
+3883 2949 3797 2949 Dl
+(CH)3895 2976 w
+5 PA f
+(2)4018 3001 w
+8 PA f
+4140 2949 4054 2949 Dl
+(CH)4148 2976 w
+4175 3093 4175 3007 Dl
+(Cl)4152 3177 w
+4363 2949 4277 2949 Dl
+(CH)4375 2976 w
+5 PA f
+(2)4498 3001 w
+8 PA f
+4621 2949 4535 2949 Dl
+(CH)4633 2976 w
+5 PA f
+(2)4756 3001 w
+8 PA f
+4655 3093 4655 3007 Dl
+(Cl)4633 3177 w
+(\(6.14a\))4892 3066 w
+3917 3424 3917 3208 Dl
+3917 3424 3899 3352 Dl
+3917 3424 3935 3352 Dl
+(CH)3937 3451 w
+5 PA f
+(2)4060 3476 w
+8 PA f
+4183 3410 4097 3410 Dl
+4183 3439 4097 3439 Dl
+(CHCl)4202 3451 w
+3917 3640 3917 3424 Dl
+3917 3640 3899 3568 Dl
+3917 3640 3935 3568 Dl
+5 PA f
+(. . .)2 99 1 2981 3901 t
+8 PA f
+3161 3899 3075 3899 Dl
+(CH)3169 3926 w
+3196 4043 3196 3957 Dl
+(Cl)3173 4128 w
+3384 3899 3298 3899 Dl
+(CH)3396 3926 w
+5 PA f
+(2)3519 3951 w
+8 PA f
+3642 3899 3556 3899 Dl
+(C)3648 3926 w
+3676 3756 3676 3842 Dl
+(Cl)3653 3725 w
+3676 4043 3676 3957 Dl
+(CH)3654 4128 w
+5 PA f
+(2)3777 4153 w
+8 PA f
+3676 4245 3676 4159 Dl
+(CHCl)3661 4329 w
+3676 4446 3676 4360 Dl
+(CH)3654 4531 w
+5 PA f
+(2)3777 4556 w
+8 PA f
+3676 4648 3676 4562 Dl
+(CH)3665 4733 w
+5 PA f
+(2)3788 4758 w
+8 PA f
+(Cl)3813 4733 w
+3797 3899 3711 3899 Dl
+(CH)3809 3926 w
+5 PA f
+(2)3932 3951 w
+8 PA f
+4054 3899 3968 3899 Dl
+(CH)4062 3926 w
+4089 4043 4089 3957 Dl
+(Cl)4066 4128 w
+4277 3899 4191 3899 Dl
+(CH)4289 3926 w
+5 PA f
+(2)4412 3951 w
+8 PA f
+4535 3899 4449 3899 Dl
+(CH)4543 3926 w
+4569 4043 4569 3957 Dl
+(Cl)4546 4128 w
+4758 3899 4672 3899 Dl
+5 PA f
+( .)1 43(. .)1 57 2 4750 3901 t
+8 PA f
+(\(6.14b\))4945 4218 w
+5 PA f
+(. . .)2 99 1 870 2073 t
+8 PA f
+1050 2071 964 2071 Dl
+(CH)1058 2097 w
+1084 2214 1084 2128 Dl
+(Cl)1061 2299 w
+1273 2071 1187 2071 Dl
+(CH)1285 2097 w
+5 PA f
+(2)1408 2122 w
+8 PA f
+1530 2071 1444 2071 Dl
+(CH)1538 2097 w
+1565 2214 1565 2128 Dl
+(Cl)1542 2299 w
+1753 2071 1667 2071 Dl
+(CH)1765 2097 w
+5 PA f
+(2)1888 2122 w
+8 PA f
+2011 2071 1925 2071 Dl
+(CH)2019 2097 w
+2045 2214 2045 2128 Dl
+(Cl)2023 2299 w
+2234 2071 2148 2071 Dl
+(CH)2246 2097 w
+5 PA f
+(2)2369 2122 w
+8 PA f
+2491 2071 2405 2071 Dl
+(CH)2499 2097 w
+2526 2214 2526 2128 Dl
+(Cl)2504 2299 w
+3040 1452 2629 2013 Dl
+3041 1452 3013 1520 Dl
+3040 1452 2984 1499 Dl
+3040 2891 2629 2330 Dl
+3040 2891 2984 2844 Dl
+3041 2891 3013 2823 Dl
+10 PB f
+(Appendix B:)1 572 1 720 5217 t
+10 PX f
+(chem)1342 5217 w
+10 PB f
+(Command Summary)1 948 1 1594 5217 t
+10 PA f
+( begin with)2 505(Structure descriptions)1 979 2 970 5373 t
+10 CW f
+(.cstart)2482 5373 w
+10 PA f
+(and end with)2 595 1 2930 5373 t
+10 CW f
+(.cend)3553 5373 w
+10 PA f
+(, with the `)3 479 1 3853 5373 t
+10 CW f
+(.)4332 5373 w
+10 PA f
+(' always in the)3 648 1 4392 5373 t
+( begin with a capital letter and are followed by `)10 2214( Labels)1 345(\256rst column.)1 570 3 720 5493 t
+10 CW f
+(:)3849 5493 w
+10 PA f
+( command)1 479('. The)1 280 2 3909 5493 t
+10 CW f
+(size)4702 5493 w
+10 PI f
+(n)4976 5493 w
+10 PA f
+(scales the diagram to size)4 1125 1 720 5613 t
+10 PI f
+(n)1870 5613 w
+10 PA f
+( begin with a)3 577( Comments)1 534( is 10.)2 248(; default)1 364 4 1934 5613 t
+10 CW f
+(#)3683 5613 w
+10 PA f
+(; any characters from the)4 1097 1 3743 5613 t
+10 CW f
+(#)4866 5613 w
+10 PA f
+(to)4952 5613 w
+( line beginning with a)4 992( Any)1 249(the end of the line are ignored.)6 1399 3 720 5733 t
+10 CW f
+(.)3392 5733 w
+10 PA f
+( any line begin-)3 700(is copied verbatim;)2 856 2 3484 5733 t
+(ning with)1 441 1 720 5853 t
+10 CW f
+(pic)1198 5853 w
+10 PA f
+(is copied verbatim after the)4 1258 1 1415 5853 t
+10 CW f
+(pic)2710 5853 w
+10 PA f
+( are assumed to be)4 872( other lines)2 514( All)1 198(is removed.)1 529 4 2927 5853 t
+(valid)720 5973 w
+10 PI f
+(pic)970 5973 w
+10 PA f
+(commands and are passed through labeled but otherwise verbatim.)8 2984 1 1122 5973 t
+9 CW f
+(chem)1080 6133 w
+9 PI f
+(filenames)1350 6133 w
+9 CW f
+(| pic)1 270 1 1744 6133 t
+9 PI f
+([)2068 6133 w
+9 CW f
+(| tbl | eqn)3 594 1 2152 6133 t
+9 PI f
+(])2800 6133 w
+9 CW f
+(| troff)1 378 1 2884 6133 t
+10 PB f
+(Atoms or Groups)2 789 1 720 6433 t
+10 PA f
+( are automatically converted to)4 1391( Numbers)1 470(Atoms or groups must begin with a capital letter.)8 2209 3 970 6589 t
+( atom or group always de\256nes a name for a)9 2061( An)1 202( on the line.)3 564(subscripts and dots are centered)4 1493 4 720 6709 t
+( the group contains special characters, the name is what is left after the special characters)15 3946(place. If)1 374 2 720 6829 t
+( name)1 269( The)1 217(are stripped out.)2 734 3 720 6949 t
+10 CW f
+(BP)1965 6949 w
+10 PA f
+(\(``branch point''\) does not draw anything.)5 1852 1 2110 6949 t
+(Examples:)970 7105 w
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 29 31
+%%Page: 30 32
+/saveobj save def
+mark
+32 pagesetup
+10 PA f
+(- 30 -)2 216 1 2772 480 t
+9 CW f
+(.cstart)1134 880 w
+( name = SiO2)3 648(SiO2 #)1 1026 2 1350 980 t
+(move right 1)2 648 1 1350 1080 t
+( name = CH3CH2NH2HCl)3 1080(CH3CH2NH2.HCl #)1 1026 2 1350 1180 t
+(.cend)1134 1280 w
+10 PA f
+(SiO)2067 1590 w
+7 PA f
+(2)2228 1625 w
+10 PA f
+(CH)2954 1590 w
+7 PA f
+(3)3108 1625 w
+10 PA f
+(CH)3143 1590 w
+7 PA f
+(2)3297 1625 w
+10 PA f
+(NH)3332 1590 w
+7 PA f
+(2)3498 1625 w
+10 PA f
+(.)3533 1560 w
+(HCl)3558 1590 w
+10 PB f
+(Bonds)720 1935 w
+10 PI f
+(type)970 2091 w
+10 HB f
+(bond)1167 2091 w
+10 PI f
+([direction] [)1 482 1 1436 2091 t
+10 CW f
+(length)1943 2091 w
+10 PI f
+(n] [)1 147 1 2328 2091 t
+10 CW f
+(from)2500 2091 w
+10 PI f
+(name] [)1 308 1 2765 2091 t
+10 CW f
+(to)3098 2091 w
+10 PI f
+(name] [attribute])1 692 1 3243 2091 t
+10 PA f
+(type:)1080 2271 w
+10 HB f
+(double)1800 2271 w
+10 PA f
+(,)2128 2271 w
+10 HB f
+(triple)2178 2271 w
+10 PA f
+(,)2423 2271 w
+10 HB f
+(front)2473 2271 w
+10 PA f
+(,)2700 2271 w
+10 HB f
+(back)2750 2271 w
+10 PA f
+(direction:)1080 2391 w
+10 HB f
+(up)1800 2391 w
+10 PA f
+(,)1922 2391 w
+10 HB f
+(down)1972 2391 w
+10 PA f
+(,)2233 2391 w
+10 HB f
+(left)2283 2391 w
+10 PA f
+(,)2433 2391 w
+10 HB f
+(right)2483 2391 w
+10 PA f
+(, angle in degrees \(0)4 879 1 2705 2391 t
+10 S f
+(\260)3584 2391 w
+10 PA f
+(is up, 90)2 366 1 3649 2391 t
+10 S f
+(\260)4015 2391 w
+10 PA f
+(is right\))1 345 1 4080 2391 t
+10 HB f
+(length)1080 2511 w
+10 PI f
+(n)1405 2511 w
+10 PA f
+(:)1461 2511 w
+10 PI f
+(n)1800 2511 w
+10 PA f
+(in inches, default 0.2)3 905 1 1881 2511 t
+(attribute:)1080 2631 w
+10 HB f
+(dotted)1800 2631 w
+10 PA f
+(,)2105 2631 w
+10 HB f
+(dashed)2155 2631 w
+10 PA f
+(Example:)970 2847 w
+9 CW f
+(.cstart)1134 3007 w
+(C)1350 3107 w
+(frontbond -170 from C ; H)5 1350 1 1350 3207 t
+(backbond 10 from C ; CO2H)5 1350 1 1350 3307 t
+(bond left length .15 from C ; H2N)7 1782 1 1350 3407 t
+(bond right from C ; CH3)5 1242 1 1350 3507 t
+(.cend)1134 3607 w
+10 PA f
+(C)2860 4117 w
+2905 4144 2907 4232 Dl
+2904 4144 2904 4232 Dl
+2904 4144 2902 4232 Dl
+2904 4145 2899 4232 Dl
+2903 4145 2896 4232 Dl
+2904 4145 2894 4232 Dl
+2903 4144 2891 4231 Dl
+2904 4144 2889 4231 Dl
+2904 4144 2886 4230 Dl
+2904 4145 2884 4230 Dl
+2904 4146 2881 4230 Dl
+2904 4145 2879 4229 Dl
+2904 4144 2876 4227 Dl
+2903 4145 2873 4227 Dl
+2903 4144 2871 4226 Dl
+2889 4228 2904 4144 Dl
+(H)2857 4317 w
+2903 4014 2875 4009 Dl
+2906 3996 2878 3991 Dl
+2909 3978 2881 3973 Dl
+(CO)2843 3917 w
+7 PA f
+(2)2993 3952 w
+10 PA f
+(H)3028 3917 w
+2753 4086 2861 4086 Dl
+(H)2567 4117 w
+7 PA f
+(2)2650 4152 w
+10 PA f
+(N)2685 4117 w
+3015 4086 2929 4086 Dl
+(CH)3007 4117 w
+7 PA f
+(3)3161 4152 w
+10 PB f
+(Rings)720 4698 w
+10 PI f
+([modi\256er])970 4854 w
+10 CW f
+(ring)1392 4854 w
+10 PI f
+(n [)1 114 1 1632 4854 t
+10 CW f
+(pointing)1771 4854 w
+10 PI f
+(direction] [heteroatoms] [doublebonds])2 1553 1 2276 4854 t
+10 PA f
+(modi\256er:)1080 5034 w
+10 HB f
+(aromatic)1980 5034 w
+(ring)1080 5154 w
+10 PI f
+(n)1269 5154 w
+10 PA f
+(:)1325 5154 w
+10 HB f
+(ring3)1980 5154 w
+10 PA f
+(, ...)1 125 1 2225 5154 t
+10 HB f
+(ring8)2375 5154 w
+10 PA f
+(,)2620 5154 w
+10 HB f
+(\257atring)2670 5154 w
+10 PA f
+(\(5-membered ring\) or)2 953 1 3034 5154 t
+10 HB f
+(benzene)4012 5154 w
+10 PA f
+(direction:)1080 5274 w
+10 HB f
+(pointing up)1 544 1 1980 5274 t
+10 PA f
+(\(default\),)2549 5274 w
+10 HB f
+(down)2979 5274 w
+10 PA f
+(,)3240 5274 w
+10 HB f
+(left)3290 5274 w
+10 PA f
+(,)3440 5274 w
+10 HB f
+(right)3490 5274 w
+10 PA f
+(or angle in degrees)3 841 1 3737 5274 t
+(heteroatoms:)1080 5394 w
+10 HB f
+(put)1980 5394 w
+10 PI f
+(X)2160 5394 w
+10 HB f
+(at)2257 5394 w
+10 PI f
+(V)2371 5394 w
+10 PA f
+(, where X is the heteroatom and V is the vertex)10 2065 1 2443 5394 t
+( clockwise; the ``point'' is always)5 1447(vertices: numbered)1 1358 2 1080 5514 t
+10 HB f
+(.V1)3910 5514 w
+10 PA f
+(\(vertex 1\))1 418 1 4086 5514 t
+(double bonds:)1 629 1 1080 5634 t
+10 HB f
+(double)1980 5634 w
+10 PA f
+( draws a double bond between vertices i and j)9 2022(i , j)2 93 2 2333 5634 t
+10 HB f
+(triple)2055 5754 w
+10 PA f
+( draws a triple bond)4 894(i , j)2 93 2 2325 5754 t
+(fused rings:)1 519 1 1080 5874 t
+10 HB f
+(ring)1980 5874 w
+10 PI f
+(n)2169 5874 w
+10 HB f
+(with .V)1 323 1 2250 5874 t
+10 PI f
+(i)2573 5874 w
+10 HB f
+(at R.V)1 284 1 2626 5874 t
+10 PA f
+(j fuses ith vertex to)4 833 1 2910 5874 t
+(jth vertex of previous ring R)5 1244 1 2055 5994 t
+(Examples:)970 6210 w
+9 CW f
+(.cstart)1350 6370 w
+(R1: benzene)1 702 1 1458 6470 t
+(bond -120 from R1.V5 ; CH3O)5 1458 1 1782 6570 t
+( pointing 45 with .V4 at R1.V2)6 1620(R2: ring4)1 594 2 1458 6670 t
+( ring6 put N at 4 put S at 2 at R2 + \(.75,0\))13 2376(R3: aromatic)1 756 2 1458 6770 t
+( pointing left at R3 + \(.75,0\))6 1620(R4: ring5)1 594 2 1458 6870 t
+(label R4)1 432 1 1782 6970 t
+(.cend)1350 7070 w
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 30 32
+%%Page: 31 33
+/saveobj save def
+mark
+33 pagesetup
+10 PA f
+(- 31 -)2 216 1 2772 480 t
+2544 976 2357 868 Dl
+2544 1192 2544 976 Dl
+2357 1300 2544 1192 Dl
+2170 1192 2357 1300 Dl
+2170 976 2170 1192 Dl
+2357 868 2170 976 Dl
+2249 1084 216 216 De
+2096 1235 2170 1192 Dl
+(CH)1854 1307 w
+7 PA f
+(3)2008 1342 w
+10 PA f
+(O)2043 1307 w
+2760 1192 2760 976 Dl
+2544 1192 2760 1192 Dl
+2544 976 2544 1192 Dl
+2760 976 2544 976 Dl
+3303 919 3166 840 Dl
+(S)3328 978 w
+3354 1163 3354 1005 Dl
+3217 1243 3354 1164 Dl
+(N)3125 1302 w
+2979 1164 3116 1243 Dl
+2979 948 2979 1164 Dl
+3166 840 2979 948 Dl
+3058 1056 216 216 De
+3692 910 3566 1084 Dl
+3898 975 3693 909 Dl
+3899 1192 3899 976 Dl
+3694 1258 3899 1192 Dl
+3567 1085 3693 1259 Dl
+7 PA f
+(1)3604 1104 w
+(2)3693 982 w
+(3)3837 1029 w
+(4)3837 1180 w
+(5)3693 1227 w
+10 PB f
+(Positioning Substituents)1 1127 1 720 1652 t
+10 PI f
+(group position name)2 828 1 970 1808 t
+10 PA f
+(position:)1080 1988 w
+10 HB f
+(right of)1 344 1 1828 1988 t
+10 PA f
+(,)2172 1988 w
+10 HB f
+(left of)1 272 1 2222 1988 t
+10 PA f
+(,)2494 1988 w
+10 HB f
+(above)2544 1988 w
+10 PA f
+(,)2834 1988 w
+10 HB f
+(below)2884 1988 w
+10 PA f
+(Examples:)970 2204 w
+9 CW f
+(.cstart)1134 2364 w
+(R1: flatring pointing down put N at 2 put N at 5 double 1,2 3,4)14 3402 1 1296 2464 t
+(H right of R1.V5)3 864 1 1512 2564 t
+(R2: ring7 put N at 1 at R1 + \(1.0,0\))9 1944 1 1296 2664 t
+(H above R2.V1)2 702 1 1512 2764 t
+(.cend)1134 2864 w
+10 PA f
+2381 3549 2518 3628 Dl
+2392 3524 2518 3596 Dl
+(N)2289 3551 w
+2330 3305 2330 3463 Dl
+2704 3304 2330 3304 Dl
+2657 3331 2377 3331 Dl
+2705 3462 2705 3304 Dl
+(N)2664 3551 w
+2518 3628 2655 3549 Dl
+(H)2745 3551 w
+(N)3197 3289 w
+3431 3352 3289 3284 Dl
+3481 3562 3433 3352 Dl
+3346 3732 3480 3563 Dl
+3130 3731 3346 3731 Dl
+2996 3562 3130 3731 Dl
+3043 3353 2995 3563 Dl
+3185 3284 3043 3352 Dl
+(H)3197 3174 w
+cleartomark
+showpage
+saveobj restore
+%%EndPage: 31 33
+%%Trailer
+done
+%%Pages: 33
+%%DocumentFonts: Courier Palatino-Roman Palatino-Bold Palatino-Italic Symbol Helvetica-Bold Palatino-BoldItalic
