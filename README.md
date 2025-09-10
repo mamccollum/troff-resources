@@ -73,6 +73,9 @@ NOTE: Some PDFs may not render previewed in GitHub! You likely will have to down
     code](http://github.com/n-t-roff/heirloom-doctools)
 -   [NetHack Guidebook (vers 3.6.7) source, written in
     troff](./ex/NetHack-doc.tar.gz)
+-   [Research Unix papers written in Troff](./ex/research-unix.tar.gz)
+-	[Workbooks written by the US Department of Defense on UNIX terminals, written in nroff and released for USENIX '81](./ex/dod.tar.gz)
+	
 -   [Troff Source code to the PSD/USD/SMM 4.4BSD documentation books.
     Incomplete, does not build but is useful for learning. (As of
     2024-Aug-18)](./ex/4.4doc-incomplete.tar.gz)
